@@ -79,6 +79,4 @@ spec:
           workspace: source
   workspaces:
     - name: source
-      optional: false
-  resources: []
-  finally: []
+
