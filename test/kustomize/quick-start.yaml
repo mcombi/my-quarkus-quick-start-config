@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quick-start
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: quick-start
+  template:
+    metadata:
+      labels:
+        app: quick-start
+    spec:
+      containers:
+        - name: demo
+          image: quay.io/mcombi/quarkus-getting-started
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: tpc-port
+
