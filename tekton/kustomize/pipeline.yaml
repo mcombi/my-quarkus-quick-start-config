@@ -1,17 +1,6 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 ***REMOVED***
-  managedFields:
-    - apiVersion: tekton.dev/v1beta1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          .: {}
-          'f:finally': {}
-          'f:params': {}
-          'f:resources': {}
-          'f:tasks': {}
-          'f:workspaces': {}
   name: quarkus-getting-started-pipeline
   namespace: demo-ci-cd
 spec:
@@ -68,29 +57,6 @@ spec:
           workspace: source
         - name: maven-settings
           workspace: source
-    - name: s2i-java
-      params:
-        - name: VERSION
-          value: openjdk-11-ubi8
-        - name: PATH_CONTEXT
-          value: .
-        - name: TLSVERIFY
-          value: 'true'
-        - name: MAVEN_CLEAR_REPO
-          value: 'false'
-        - name: IMAGE
-          value: quay.io/mcombi/quarkus-getting-started
-        - name: BUILDER_IMAGE
-          value: >-
-            registry.redhat.io/rhel8/buildah@sha256:99cae35f40c7ec050fed3765b2b27e0b8bbea2aa2da7c16408e2ca13c60ff8ee
-      runAfter:
-        - maven
-      taskRef:
-        kind: ClusterTask
-        name: s2i-java
-      workspaces:
-        - name: source
-          workspace: source
     - name: s2i-java-11-custom
       params:
         - name: PATH_CONTEXT
@@ -101,6 +67,8 @@ spec:
           value: 'false'
         - name: IMAGE_NAME
           value: quay.io/mcombi/quarkus-getting-started
+        - name: IMAGE_TAG
+          value: $(tasks.git-clone.results.commit)
       runAfter:
         - maven
       taskRef:
@@ -111,3 +79,6 @@ spec:
           workspace: source
   workspaces:
     - name: source
+      optional: false
+  resources: []
+  finally: []
