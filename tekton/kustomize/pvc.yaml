@@ -8,7 +8,8 @@ kind: PersistentVolumeClaim
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeMode: FileSystem
+  volumeMode: Filesystem
+  storageClassName: slow
   resources:
     requests:
       storage: 5Gi
