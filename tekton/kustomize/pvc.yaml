@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: demo-ci-cd-test-pvc
+  name: build-volume-pvc
   namespace: demo-ci-cd-test
   annotations:
     argocd.argoproj.io/sync-wave: "1"
