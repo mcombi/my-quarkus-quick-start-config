@@ -81,4 +81,6 @@ spec:
           workspace: source
   workspaces:
     - name: source
+      persistentVolumeClaim:
+        claimName: build-volume-pvc
 
