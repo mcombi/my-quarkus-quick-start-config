@@ -7,8 +7,7 @@ metadata:
     tekton.dev/tags: 's2i, java, workspace'
   name: s2i-java-11-custom
   namespace: demo-ci-cd
-  resourceVersion: '733616'
-  uid: e5a0f6c4-67dd-4587-b744-89fb185975d6
+
 spec:
   description: >-
     s2i-java-11 task clones a Git repository and builds and pushes a container
