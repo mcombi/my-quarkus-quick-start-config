@@ -1,7 +1,7 @@
 ***REMOVED***
 kind: PersistentVolume
 ***REMOVED***
-  name: build volume
+  name: build-volume
 ***REMOVED***
     argocd.argoproj.io/sync-wave: "0"
 spec:
