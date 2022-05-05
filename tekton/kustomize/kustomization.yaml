@@ -5,3 +5,4 @@ resources:
   - pipeline.yaml
   - s2i-task.yaml
   - pvc.yaml
+  - secret.yaml
