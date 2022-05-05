@@ -10,7 +10,7 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: gp2
+  storageClassName: slow
   nfs:
     path: /tmp
     server: 172.17.0.2
