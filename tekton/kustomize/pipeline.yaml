@@ -3,6 +3,8 @@ kind: Pipeline
 metadata:
   name: quarkus-getting-started-pipeline
   namespace: demo-ci-cd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   params:
     - default: prova
