@@ -1,0 +1,16 @@
+***REMOVED***
+kind: PersistentVolume
+***REMOVED***
+  name: build volume
+***REMOVED***
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: slow
+  nfs:
+    path: /tmp
+    server: 172.17.0.2

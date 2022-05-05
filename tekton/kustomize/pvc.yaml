@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 ***REMOVED***
   name: demo-ci-cd-test-pvc
   namespace: demo-ci-cd-test
+***REMOVED***
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   accessModes:
     - ReadWriteOnce
