@@ -1,26 +1,12 @@
+***REMOVED***
 kind: PersistentVolumeClaim
 ***REMOVED***
-***REMOVED***
-  name: tekton-build-ci-cd-pvc
+  name: demo-ci-cd-test-pvc
   namespace: demo-ci-cd-test
-***REMOVED***
-    pv.kubernetes.io/bind-completed: 'yes'
-    pv.kubernetes.io/bound-by-controller: 'yes'
-    argocd.argoproj.io/sync-wave: "0"
-  finalizers:
-    - kubernetes.io/pvc-protection
 spec:
   accessModes:
     - ReadWriteOnce
+  volumeMode: Filesystem
   resources:
     requests:
-      storage: 7Gi
-
-  storageClassName: gp2
-  volumeMode: Filesystem
-status:
-  phase: Bound
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 7Gi
+      storage: 10Gi
