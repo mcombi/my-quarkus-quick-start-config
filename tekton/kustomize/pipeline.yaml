@@ -79,8 +79,11 @@ spec:
       workspaces:
         - name: source
           workspace: source
-  workspaces:
-    - name: source
-      persistentVolumeClaim:
-        claimName: build-volume-pvc
+volumeClaimTemplate:
+  spec:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 2Gi
 
