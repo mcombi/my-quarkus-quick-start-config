@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: demo-ci-cd-test
 resources:
   - pipeline.yaml
+  - s2i-task.yaml
