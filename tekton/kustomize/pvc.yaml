@@ -1,7 +1,7 @@
 ***REMOVED***
 kind: PersistentVolumeClaim
 ***REMOVED***
-  name: build-volume-pvc
+  name: tekton-build-volume-pvc-test
   namespace: demo-ci-cd-test
 ***REMOVED***
     argocd.argoproj.io/sync-wave: "1"
@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem
-  storageClassName: slow
+  storageClassName: gp2
   resources:
     requests:
       storage: 5Gi

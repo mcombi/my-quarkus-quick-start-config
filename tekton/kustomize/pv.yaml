@@ -1,7 +1,7 @@
 ***REMOVED***
 kind: PersistentVolume
 ***REMOVED***
-  name: build-volume
+  name: tekton-build-volume-test
   namespace: demo-ci-cd-test
 ***REMOVED***
     argocd.argoproj.io/sync-wave: "0"
@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: slow
+  storageClassName: gp2
   nfs:
     path: /tmp
     server: 172.17.0.2
