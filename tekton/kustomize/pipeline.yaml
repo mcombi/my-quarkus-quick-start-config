@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: quarkus-getting-started-pipeline
+  name: quarkus-pipeline
   namespace: demo-ci-cd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -78,12 +78,6 @@ spec:
         name: s2i-java-11-custom
       workspaces:
         - name: source
-          volumeClaimTemplate:
-            spec:
-              accessModes:
-                - ReadWriteOnce
-              resources:
-                requests:
-                  storage: 2Gi
+          workspace: source
 
 
