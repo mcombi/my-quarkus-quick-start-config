@@ -1,8 +1,8 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: quarkus-getting-started-pipeline
-  namespace: demo-ci-cd
+  name: quarkus-getting-started-pipeline-test
+  namespace: demo-ci-cd-test
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
