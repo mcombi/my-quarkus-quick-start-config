@@ -78,12 +78,12 @@ spec:
         name: s2i-java-11-custom
       workspaces:
         - name: source
-          workspace: source
-volumeClaimTemplate:
-  spec:
-    accessModes:
-      - ReadWriteOnce
-    resources:
-      requests:
-        storage: 2Gi
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 2Gi
+
 
