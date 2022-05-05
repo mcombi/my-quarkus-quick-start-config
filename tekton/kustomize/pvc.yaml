@@ -8,7 +8,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeMode: Filesystem
+  volumeMode: FileSystem
   resources:
     requests:
       storage: 5Gi

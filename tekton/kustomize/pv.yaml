@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: build-volume
+  namespace: demo-ci-cd-test
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
@@ -10,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: gp2
+  storageClassName: slow
   nfs:
     path: /tmp
     server: 172.17.0.2
