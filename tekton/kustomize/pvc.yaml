@@ -1,7 +1,7 @@
 ***REMOVED***
 kind: PersistentVolumeClaim
 ***REMOVED***
-  name: demo-ci-cd-test-pvc
+  name: build-volume-pvc
   namespace: demo-ci-cd-test
 ***REMOVED***
     argocd.argoproj.io/sync-wave: "1"
