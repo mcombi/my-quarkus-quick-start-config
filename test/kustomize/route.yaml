@@ -3,7 +3,7 @@ kind: Route
 ***REMOVED***
   name: quick-start-route-test
 spec:
-  host: quick-start-service-demo.apps.cluster-hcgkt.hcgkt.sandbox352.opentlc.com
+  host: quick-start-service-demo.apps.cluster-hcgkt.hcgkt.sandbox121.opentlc.com
   to:
     kind: Service
     name: quick-start-service
