@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: demo-ci-cd-test-pvc
   namespace: demo-ci-cd-test
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   accessModes:
     - ReadWriteOnce
