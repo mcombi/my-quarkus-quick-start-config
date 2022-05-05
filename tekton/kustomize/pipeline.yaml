@@ -3,6 +3,8 @@ kind: Pipeline
 ***REMOVED***
   name: quarkus-getting-started-pipeline
   namespace: demo-ci-cd
+***REMOVED***
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   params:
     - default: prova
