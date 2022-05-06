@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
   name: tekton-build-test
 ***REMOVED***
     demo-devops/app: build
+***REMOVED***
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   resources:
     requests:
