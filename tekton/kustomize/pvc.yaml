@@ -4,6 +4,8 @@ metadata:
   name: tekton-build-test
   labels:
     demo-devops/app: build
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   resources:
     requests:
