@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: quarkus-getting-started-pipeline-test
-  namespace: demo-gitops
+  namespace: demo-gitops-2
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
