@@ -1,15 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: tekton-build-test
-  labels:
-    demo-devops/app: build
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
+  name: source-pvc
 spec:
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteMany
+      storage: 500Mi
