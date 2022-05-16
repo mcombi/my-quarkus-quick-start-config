@@ -12,9 +12,9 @@ spec:
       name: IMAGE_TAG
       type: string
     - default: ""
-        description: Url del repository
-        name: REPO_URL
-        type: string
+      description: Url del repository
+      name: REPO_URL
+      type: string
   tasks:
     - name: git-clone
       params:
