@@ -7,13 +7,13 @@ metadata:
     argocd.argoproj.io/sync-wave: "2"
 spec:
   params:
-    - default: prova
-      description: Tag dell'immagine
-      name: IMAGE_TAG
-      type: string
     - default: ""
-      description: Url del repository
+      description: Url del repository git
       name: REPO_URL
+      type: string
+    - default: "quay.io/mcombi/quarkus-getting-started"
+      description: Image name
+      name: IMAGE_NAME
       type: string
   tasks:
     - name: git-clone
@@ -72,7 +72,7 @@ spec:
         - name: MAVEN_CLEAR_REPO
           value: 'false'
         - name: IMAGE_NAME
-          value: quay.io/mcombi/quarkus-getting-started
+          value: $(params.IMAGE_NAME)
         - name: IMAGE_TAG
           value: $(tasks.git-clone.results.commit)
       runAfter:
