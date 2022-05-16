@@ -7,3 +7,4 @@ resources:
   - pvc.yaml
   #- pv.yaml
   - secret.yaml
+  - service-account.yaml
