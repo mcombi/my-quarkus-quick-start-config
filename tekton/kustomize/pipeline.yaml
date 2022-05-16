@@ -68,7 +68,7 @@ spec:
         - name: PATH_CONTEXT
           value: .
         - name: TLSVERIFY
-          value: 'true'
+          value: 'false'
         - name: MAVEN_CLEAR_REPO
           value: 'false'
         - name: IMAGE_NAME
