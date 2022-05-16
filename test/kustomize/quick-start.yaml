@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: quick-start
+  labels:
+    app.kubernetes.io/runtime: quarkus
 spec:
   replicas: 1
   selector:
