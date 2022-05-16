@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: demo
-          image: quay.io/mcombi/quarkus-getting-started:10eaa822d3c4a18a811a20f07c78a1d65757d619
+          image: quay.io/mcombi/quarkus-getting-started:latest
           ports:
             - containerPort: 8080
               protocol: TCP
