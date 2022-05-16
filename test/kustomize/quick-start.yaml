@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 ***REMOVED***
   name: quick-start
+***REMOVED***
+    app.kubernetes.io/runtime: quarkus
 spec:
   replicas: 1
   selector:
