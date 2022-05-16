@@ -62,7 +62,7 @@ spec:
         git add $(params.KUSTOMIZATION_PATH)/kustomization.yaml
         git commit -m "[$(context.taskRun.name)] Image digest updated"
         # git commit -m "[${PIPELINERUN_NAME}] Image digest updated"
-        git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#http://(.*)#http://$(params.GIT_USERNAME):$(params.GIT_PASSWORD)@\1#g")
+        git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#https://(.*)#https://$(params.GIT_USERNAME):$(params.GIT_PASSWORD)@\1#g")
         git push auth-origin main
         RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
         EXIT_CODE="$?"
