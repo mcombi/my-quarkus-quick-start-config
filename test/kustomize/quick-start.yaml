@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: quick-start
   labels:
+    app.openshift.io/runtime: quarkus
     app.kubernetes.io/runtime: quarkus
 spec:
   replicas: 1
