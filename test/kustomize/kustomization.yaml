@@ -6,5 +6,8 @@ resources:
 - service.yaml
 - route.yaml
 images:
+- digest: 1ff0a92f93d6e9e9be95ce0e32f772182ee7a34d
+  name: mcombi/quarkus-getting-started
+  newName: mcombi/quarkus-getting-started
 - name: quay.io/mcombi/quarkus-getting-started
   newTag: 1ff0a92f93d6e9e9be95ce0e32f772182ee7a34d
