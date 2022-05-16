@@ -84,6 +84,30 @@ spec:
       workspaces:
         - name: source
           workspace: source
+    - name: git-update-deployment
+      params:
+        - name: GIT_REPOSITORY
+          value: 'https://github.com/mcombi/my-quarkus-quick-start-config.git'
+        - name: GIT_USERNAME
+          value: mcombi
+        - name: GIT_PASSWORD
+          value: blablanla
+        - name: CURRENT_IMAGE
+          value: mcombi/quarkus-getting-started
+        - name: NEW_IMAGE
+          value: mcombi/quarkus-getting-started
+        - name: NEW_DIGEST
+          value: $(tasks.git-clone.results.commit)
+        - name: KUSTOMIZATION_PATH
+          value: test/kustomize
+      runAfter:
+         - s2i-java-11-custom
+      taskRef:
+         kind: Task
+         name: git-update-deployment
+      workspaces:
+        - name: workspace
+          workspace: source
   workspaces:
     - name: source
 
