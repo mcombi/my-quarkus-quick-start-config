@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 ***REMOVED***
   name: quarkus-getting-started-pipeline-test
-  namespace: demo-ci-cd-test
+  namespace: demo-gitops
 ***REMOVED***
     argocd.argoproj.io/sync-wave: "2"
 spec:
@@ -11,17 +11,21 @@ spec:
       description: Tag dell'immagine
       name: IMAGE_TAG
       type: string
+    - default: ""
+        description: Url del repository
+        name: REPO_URL
+        type: string
   tasks:
     - name: git-clone
       params:
         - name: url
-          value: 'https://github.com/mcombi/my-quarkus-quick-start.git'
+          value: $(params.REPO_URL)
         - name: submodules
           value: 'true'
         - name: depth
           value: '1'
         - name: sslVerify
-          value: 'true'
+          value: 'false'
         - name: deleteExisting
           value: 'true'
         - name: verbose

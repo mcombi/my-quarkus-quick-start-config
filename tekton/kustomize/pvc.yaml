@@ -1,15 +1,10 @@
 ***REMOVED***
 kind: PersistentVolumeClaim
 ***REMOVED***
-  name: tekton-build-test
-***REMOVED***
-    demo-devops/app: build
-***REMOVED***
-    argocd.argoproj.io/sync-wave: "3"
+  name: source-pvc
 spec:
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteMany
+      storage: 500Mi
