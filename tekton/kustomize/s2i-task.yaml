@@ -10,7 +10,7 @@ metadata:
   namespace: demo-gitops-2
 
 spec:
-  serviceAccountName: build-service-account
+
   description: >-
     s2i-java-11 task clones a Git repository and builds and pushes a container
     image using S2I and a Java 11 builder image.
