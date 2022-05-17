@@ -18,7 +18,6 @@ spec:
       type: string
     - name: GIT_PASSWORD
       type: string
-      value: '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'
     - name: CURRENT_IMAGE
       type: string
     - name: NEW_IMAGE
