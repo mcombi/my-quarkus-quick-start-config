@@ -91,7 +91,7 @@ spec:
         - name: GIT_USERNAME
           value: mcombi
         - name: GIT_PASSWORD
-          value: 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
+          value: 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
         - name: CURRENT_IMAGE
           value: mcombi/quarkus-getting-started
         - name: NEW_IMAGE
