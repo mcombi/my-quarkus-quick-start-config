@@ -8,6 +8,5 @@ resources:
 commonLabels:
   app: quick-start
 images:
-- digest: 3602e556fc7bb0555418c5d20a1956eb0ee042f9
-  name: quarkus-getting-started
-  newName: mcombi/quarkus-getting-started
+- name: quarkus-getting-started
+  newTag: 3602e556fc7bb0555418c5d20a1956eb0ee042f9
