@@ -7,10 +7,4 @@ resources:
 - route.yaml
 commonLabels:
   app: quick-start
-images:
-- digest: 3602e556fc7bb0555418c5d20a1956eb0ee042f9
-  name: mcombi/quarkus-getting-started
-  newName: mcombi/quarkus-getting-started
-- digest: 3602e556fc7bb0555418c5d20a1956eb0ee042f9
-  name: quay.io/mcombi/quarkus-getting-started
-  newName: quay.io/mcombi/quarkus-getting-started
+
