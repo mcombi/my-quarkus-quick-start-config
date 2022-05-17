@@ -46,7 +46,7 @@ spec:
       workingDir: $(workspaces.workspace.path)
       script: |
         cd git-update-digest-workdir/$(params.KUSTOMIZATION_PATH)
-        /app/kustomize edit set image $(params.CURRENT_IMAGE)=$(params.NEW_IMAGE)@$(params.NEW_DIGEST) && /app/kustomize build . > kustomization.yaml
+        /app/kustomize edit set image $(params.CURRENT_IMAGE)=$(params.NEW_IMAGE)@$(params.NEW_DIGEST)
         echo "##########################"
         echo "### kustomization.yaml ###"
         echo "##########################"
