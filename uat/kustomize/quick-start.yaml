@@ -2,8 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: quick-start
+  labels:
+    app.openshift.io/runtime: quarkus
+    app.kubernetes.io/runtime: quarkus
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: quick-start
@@ -14,7 +17,7 @@ spec:
     spec:
       containers:
         - name: demo
-          image: quay.io/mcombi/quarkus-getting-started
+          image: quay.io/mcombi/quarkus-getting-started:latest
           ports:
             - containerPort: 8080
               protocol: TCP

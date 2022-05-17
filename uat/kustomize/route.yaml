@@ -2,8 +2,10 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: quick-start-route-uat
+  labels:
+    app: quick-start
+    app.kubernetes.io/instance: quick-start
 spec:
-  host: quick-start-service-demo.apps.cluster-hcgkt.hcgkt.sandbox352.opentlc.com
   to:
     kind: Service
     name: quick-start-service
