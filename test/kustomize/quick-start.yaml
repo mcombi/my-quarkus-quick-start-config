@@ -16,8 +16,8 @@ spec:
         app: quick-start
     spec:
       containers:
-        - name: demo
-          image: quay.io/mcombi/quarkus-getting-started:c04d53ecc1f81b54fce23dd7f8b72d373038acfc
+        - name: mcombi/quarkus-getting-started
+          image: quay.io/mcombi/quarkus-getting-started:latest
           ports:
             - containerPort: 8080
               protocol: TCP
