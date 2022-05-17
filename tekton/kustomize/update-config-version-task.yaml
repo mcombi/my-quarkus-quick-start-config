@@ -46,11 +46,14 @@ spec:
       workingDir: $(workspaces.workspace.path)
       script: |
         cd git-update-digest-workdir/$(params.KUSTOMIZATION_PATH)
-        /app/kustomize edit set image $(params.CURRENT_IMAGE):$(params.NEW_DIGEST) && /app/kustomize build .
+        /app/kustomize edit set image $(params.CURRENT_IMAGE)=$(params.NEW_IMAGE)@$(params.NEW_DIGEST) && /app/kustomize build . > kustomization.yaml
         echo "##########################"
         echo "### kustomization.yaml ###"
         echo "##########################"
         cat kustomization.yaml
+        
+
+        
 
     - name: git-commit
       image: docker.io/alpine/git:v2.26.2
