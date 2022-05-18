@@ -1,0 +1,10 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: quick-start
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  serviceAccountName: pipeline
+  triggers:
+    - triggerRef: quick-start-trigger

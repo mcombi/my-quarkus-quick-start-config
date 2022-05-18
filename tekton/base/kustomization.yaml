@@ -4,8 +4,14 @@ namespace: demo-tekton-build-env
 resources:
   - pipeline.yaml
   - s2i-task.yaml
+  - storage-class.yaml
   - pvc.yaml
   #- pv.yaml
   - secret.yaml
-  - service-account.yaml
+  #- service-account.yaml
   - update-config-version-task.yaml
+  - triggers/trigger-template.yaml
+  - triggers/trigger-binding.yaml
+  - triggers/trigger.yaml
+  - triggers/github-secret.yaml
+  - triggers/event-listener.yaml
