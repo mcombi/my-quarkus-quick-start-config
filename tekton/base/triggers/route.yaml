@@ -3,6 +3,7 @@ kind: Route
 ***REMOVED***
   name: el-quick-start
 ***REMOVED***
+***REMOVED***
     argocd.argoproj.io/sync-wave: "4"
 ***REMOVED***
     app: quick-start
