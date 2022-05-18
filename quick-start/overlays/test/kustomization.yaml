@@ -8,6 +8,6 @@ resources:
 commonLabels:
   app: quick-start
 images:
-- digest: 59bba51ab1c707ef0fb7b913e3a8e776d4ff126d
-  name: quay.io/mcombi/quarkus-getting-started
+- name: quay.io/mcombi/quarkus-getting-started
   newName: quay.io/mcombi/quarkus-getting-started
+  newTag: 3de2f014d1f81704d911c73785bb6d72183bc674
