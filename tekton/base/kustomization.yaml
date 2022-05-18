@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: demo-gitops-2
+namespace: demo-tekton-build-env
 resources:
   - pipeline.yaml
   - s2i-task.yaml
