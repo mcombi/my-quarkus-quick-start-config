@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+***REMOVED***
+  name: el-quick-start
+***REMOVED***
+    argocd.argoproj.io/sync-wave: "4"
+***REMOVED***
+    app: quick-start
+    app.kubernetes.io/instance: quick-start
+spec:
+  to:
+    kind: Service
+    name: el-quick-start
+    weight: 100
+  port:
+    targetPort: server
+  wildcardPolicy: None
