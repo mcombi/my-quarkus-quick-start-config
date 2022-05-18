@@ -1,0 +1,944 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+***REMOVED***
+***REMOVED***
+    argocd.argoproj.io/sync-wave: '2'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"tekton.dev/v1beta1","kind":"Pipeline","metadata":{"annotations":{"argocd.argoproj.io/sync-wave":"2"},"labels":{"app.kubernetes.io/instance":"tekton-pipelines"},"name":"quarkus-getting-started-pipeline-test","namespace":"demo-gitops-2"},"spec":{"params":[{"default":"","description":"Url
+      del repository
+      git","name":"REPO_URL","type":"string"},{"default":"quay.io/mcombi/quarkus-getting-started","description":"Image
+      name","name":"IMAGE_NAME","type":"string"}],"tasks":[{"name":"git-clone","params":[{"name":"url","value":"$(params.REPO_URL)"},{"name":"submodules","value":"true"},{"name":"depth","value":"1"},{"name":"sslVerify","value":"false"},{"name":"deleteExisting","value":"true"},{"name":"verbose","value":"true"},{"name":"gitInitImage","value":"registry.redhat.io/openshift-pipelines/pipelines-git-init-rhel8@sha256:bc551c776fb3d0fcc6cfd6d8dc9f0030de012cb9516fac42b1da75e6771001d9"},{"name":"userHome","value":"/tekton/home"}],"taskRef":{"kind":"ClusterTask","name":"git-clone"},"workspaces":[{"name":"output","workspace":"source"}]},{"name":"maven","params":[{"name":"MAVEN_IMAGE","value":"gcr.io/cloud-builders/mvn@sha256:57523fc43394d6d9d2414ee8d1c85ed7a13460cbb268c3cd16d28cfb3859e641"},{"name":"GOALS","value":["test-compile"]},{"name":"PROXY_PROTOCOL","value":"http"},{"name":"CONTEXT_DIR","value":"."}],"runAfter":["git-clone"],"taskRef":{"kind":"ClusterTask","name":"maven"},"workspaces":[{"name":"source","workspace":"source"},{"name":"maven-settings","workspace":"source"}]},{"name":"s2i-java-11-custom","params":[{"name":"PATH_CONTEXT","value":"."},{"name":"TLSVERIFY","value":"false"},{"name":"MAVEN_CLEAR_REPO","value":"false"},{"name":"IMAGE_NAME","value":"$(params.IMAGE_NAME)"},{"name":"IMAGE_TAG","value":"$(tasks.git-clone.results.commit)"}],"runAfter":["maven"],"taskRef":{"kind":"Task","name":"s2i-java-11-custom"},"workspaces":[{"name":"source","workspace":"source"}]},{"name":"git-update-deployment","params":[{"name":"GIT_REPOSITORY","value":"https://github.com/mcombi/my-quarkus-quick-start-config.git"},{"name":"GIT_USERNAME","value":"mcombi"},{"name":"GIT_PASSWORD","value":"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"},{"name":"CURRENT_IMAGE","value":"mcombi/quarkus-getting-started"},{"name":"NEW_IMAGE","value":"mcombi/quarkus-getting-started"},{"name":"NEW_DIGEST","value":"$(tasks.git-clone.results.commit)"},{"name":"KUSTOMIZATION_PATH","value":"quick-start/overlays/test"}],"runAfter":["s2i-java-11-custom"],"taskRef":{"kind":"Task","name":"git-update-deployment"},"workspaces":[{"name":"workspace","workspace":"source"}]}],"workspaces":[{"name":"source"}]}}
+    pipeline.openshift.io/started-by: kubeadmin
+  resourceVersion: '826985'
+  name: quarkus-getting-started-pipeline-test-jzfa3k
+  uid: c52ba862-a5d5-486c-bc0f-b9beab60c48e
+  creationTimestamp: '2022-05-17T19:16:42Z'
+  generation: 1
+  managedFields:
+    - apiVersion: tekton.dev/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:argocd.argoproj.io/sync-wave': {}
+            'f:pipeline.openshift.io/started-by': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+            'f:tekton.dev/pipeline': {}
+        'f:spec':
+          .: {}
+          'f:params': {}
+          'f:pipelineRef':
+            .: {}
+            'f:name': {}
+          'f:serviceAccountName': {}
+          'f:status': {}
+          'f:timeout': {}
+          'f:workspaces': {}
+      manager: Mozilla
+      operation: Update
+      time: '2022-05-17T19:16:42Z'
+    - apiVersion: tekton.dev/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+      manager: openshift-pipelines-controller
+      operation: Update
+      time: '2022-05-17T19:16:43Z'
+    - apiVersion: tekton.dev/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:conditions': {}
+          'f:pipelineSpec':
+            .: {}
+            'f:params': {}
+            'f:tasks': {}
+            'f:workspaces': {}
+          'f:startTime': {}
+          'f:taskRuns':
+            .: {}
+            'f:quarkus-getting-started-pipeline-test-jzfa3k-git-clone':
+              .: {}
+              'f:pipelineTaskName': {}
+              'f:status':
+                .: {}
+                'f:completionTime': {}
+                'f:conditions': {}
+                'f:podName': {}
+                'f:startTime': {}
+                'f:steps': {}
+                'f:taskResults': {}
+                'f:taskSpec':
+                  .: {}
+                  'f:description': {}
+                  'f:params': {}
+                  'f:results': {}
+                  'f:steps': {}
+                  'f:workspaces': {}
+            'f:quarkus-getting-started-pipeline-test-jzfa3k-maven':
+              .: {}
+              'f:pipelineTaskName': {}
+              'f:status':
+                .: {}
+                'f:completionTime': {}
+                'f:conditions': {}
+                'f:podName': {}
+                'f:startTime': {}
+                'f:steps': {}
+                'f:taskSpec':
+                  .: {}
+                  'f:description': {}
+                  'f:params': {}
+                  'f:steps': {}
+                  'f:workspaces': {}
+            'f:quarkus-getting-started-pipeline-test-jzfa3k-s2i-java-11-custom':
+              .: {}
+              'f:pipelineTaskName': {}
+              'f:status':
+                .: {}
+                'f:conditions': {}
+                'f:podName': {}
+                'f:startTime': {}
+                'f:steps': {}
+                'f:taskSpec':
+                  .: {}
+                  'f:description': {}
+                  'f:params': {}
+                  'f:results': {}
+                  'f:steps': {}
+                  'f:volumes': {}
+                  'f:workspaces': {}
+      manager: openshift-pipelines-controller
+      operation: Update
+      subresource: status
+      time: '2022-05-17T19:17:17Z'
+  namespace: demo-gitops-2
+***REMOVED***
+    app.kubernetes.io/instance: tekton-pipelines
+    tekton.dev/pipeline: quarkus-getting-started-pipeline-test
+spec:
+  params:
+    - name: REPO_URL
+      value: 'https://github.com/mcombi/my-quarkus-quick-start.git'
+    - name: IMAGE_NAME
+      value: quay.io/mcombi/quarkus-getting-started
+  pipelineRef:
+    name: quarkus-getting-started-pipeline-test
+  serviceAccountName: pipeline
+  timeout: 1h0m0s
+  workspaces:
+    - name: source
+      persistentVolumeClaim:
+        claimName: source-pvc
+status:
+  conditions:
+    - lastTransitionTime: '2022-05-17T19:17:16Z'
+      message: 'Tasks Completed: 2 (Failed: 0, Cancelled 0), Incomplete: 2, Skipped: 0'
+      reason: Running
+      status: Unknown
+      type: Succeeded
+  pipelineSpec:
+    params:
+      - description: Url del repository git
+        name: REPO_URL
+        type: string
+      - default: quay.io/mcombi/quarkus-getting-started
+        description: Image name
+        name: IMAGE_NAME
+        type: string
+    tasks:
+      - name: git-clone
+        params:
+          - name: url
+            value: $(params.REPO_URL)
+          - name: submodules
+            value: 'true'
+          - name: depth
+            value: '1'
+          - name: sslVerify
+            value: 'false'
+          - name: deleteExisting
+            value: 'true'
+          - name: verbose
+            value: 'true'
+          - name: gitInitImage
+            value: >-
+              registry.redhat.io/openshift-pipelines/pipelines-git-init-rhel8@sha256:bc551c776fb3d0fcc6cfd6d8dc9f0030de012cb9516fac42b1da75e6771001d9
+          - name: userHome
+            value: /tekton/home
+        taskRef:
+          kind: ClusterTask
+          name: git-clone
+        workspaces:
+          - name: output
+            workspace: source
+      - name: maven
+        params:
+          - name: MAVEN_IMAGE
+            value: >-
+              gcr.io/cloud-builders/mvn@sha256:57523fc43394d6d9d2414ee8d1c85ed7a13460cbb268c3cd16d28cfb3859e641
+          - name: GOALS
+            value:
+              - test-compile
+          - name: PROXY_PROTOCOL
+            value: http
+          - name: CONTEXT_DIR
+            value: .
+        runAfter:
+          - git-clone
+        taskRef:
+          kind: ClusterTask
+          name: maven
+        workspaces:
+          - name: source
+            workspace: source
+          - name: maven-settings
+            workspace: source
+      - name: s2i-java-11-custom
+        params:
+          - name: PATH_CONTEXT
+            value: .
+          - name: TLSVERIFY
+            value: 'false'
+          - name: MAVEN_CLEAR_REPO
+            value: 'false'
+          - name: IMAGE_NAME
+            value: $(params.IMAGE_NAME)
+          - name: IMAGE_TAG
+            value: $(tasks.git-clone.results.commit)
+        runAfter:
+          - maven
+        taskRef:
+          kind: Task
+          name: s2i-java-11-custom
+        workspaces:
+          - name: source
+            workspace: source
+      - name: git-update-deployment
+        params:
+          - name: GIT_REPOSITORY
+            value: 'https://github.com/mcombi/my-quarkus-quick-start-config.git'
+          - name: GIT_USERNAME
+            value: mcombi
+          - name: GIT_PASSWORD
+            value: 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
+          - name: CURRENT_IMAGE
+            value: quay.io/mcombi/quarkus-getting-started
+          - name: NEW_IMAGE
+            value: quay.io/mcombi/quarkus-getting-started
+          - name: NEW_DIGEST
+            value: $(tasks.git-clone.results.commit)
+          - name: KUSTOMIZATION_PATH
+            value: quick-start/overlays/test
+        runAfter:
+          - s2i-java-11-custom
+        taskRef:
+          kind: Task
+          name: git-update-deployment
+        workspaces:
+          - name: workspace
+            workspace: source
+    workspaces:
+      - name: source
+  startTime: '2022-05-17T19:16:42Z'
+  taskRuns:
+    quarkus-getting-started-pipeline-test-jzfa3k-git-clone:
+      pipelineTaskName: git-clone
+      status:
+        completionTime: '2022-05-17T19:16:51Z'
+        conditions:
+          - lastTransitionTime: '2022-05-17T19:16:51Z'
+            message: All Steps have completed executing
+            reason: Succeeded
+            status: 'True'
+            type: Succeeded
+        podName: quarkus-getting-started-pipeline-test-jzfa3k-git-clone-pod
+        startTime: '2022-05-17T19:16:43Z'
+        steps:
+          - container: step-clone
+            imageID: >-
+              registry.redhat.io/openshift-pipelines/pipelines-git-init-rhel8@sha256:1823148105cd1856c829091a55d9dcd95587644719a922f516155e233432e34e
+            name: clone
+            terminated:
+              containerID: >-
+                cri-o://3287b4f0ce3cd4971c1591cde27904002681da19526aeb4b365b8206a31fcf01
+              exitCode: 0
+              finishedAt: '2022-05-17T19:16:50Z'
+              message: >-
+                [{"key":"commit","value":"9cadc12b197f101eb82ee8317ef4fd4d926400f0","type":1},{"key":"url","value":"https://github.com/mcombi/my-quarkus-quick-start.git","type":1}]
+              reason: Completed
+              startedAt: '2022-05-17T19:16:49Z'
+        taskResults:
+          - name: commit
+            value: 9cadc12b197f101eb82ee8317ef4fd4d926400f0
+          - name: url
+            value: 'https://github.com/mcombi/my-quarkus-quick-start.git'
+        taskSpec:
+          description: >-
+            These Tasks are Git tasks to work with repositories used by other
+            tasks in your Pipeline.
+
+            The git-clone Task will clone a repo from the provided url into the
+            output Workspace. By default the repo will be cloned into the root
+            of your Workspace. You can clone into a subdirectory by setting this
+            Task's subdirectory param. This Task also supports sparse checkouts.
+            To perform a sparse checkout, pass a list of comma separated
+            directory patterns to this Task's sparseCheckoutDirectories param.
+          params:
+            - description: Repository URL to clone from.
+              name: url
+              type: string
+            - default: ''
+              description: 'Revision to checkout. (branch, tag, sha, ref, etc...)'
+              name: revision
+              type: string
+            - default: ''
+              description: Refspec to fetch before checking out revision.
+              name: refspec
+              type: string
+            - default: 'true'
+              description: Initialize and fetch git submodules.
+              name: submodules
+              type: string
+            - default: '1'
+              description: >-
+                Perform a shallow clone, fetching only the most recent N
+                commits.
+              name: depth
+              type: string
+            - default: 'true'
+              description: >-
+                Set the `http.sslVerify` global git config. Setting this to
+                `false` is not advised unless you are sure that you trust your
+                git remote.
+              name: sslVerify
+              type: string
+            - default: ''
+              description: >-
+                Subdirectory inside the `output` Workspace to clone the repo
+                into.
+              name: subdirectory
+              type: string
+            - default: ''
+              description: >-
+                Define the directory patterns to match or exclude when
+                performing a sparse checkout.
+              name: sparseCheckoutDirectories
+              type: string
+            - default: 'true'
+              description: >-
+                Clean out the contents of the destination directory if it
+                already exists before cloning.
+              name: deleteExisting
+              type: string
+            - default: ''
+              description: HTTP proxy server for non-SSL requests.
+              name: httpProxy
+              type: string
+            - default: ''
+              description: HTTPS proxy server for SSL requests.
+              name: httpsProxy
+              type: string
+            - default: ''
+              description: Opt out of proxying HTTP/HTTPS requests.
+              name: noProxy
+              type: string
+            - default: 'true'
+              description: >-
+                Log the commands that are executed during `git-clone`'s
+                operation.
+              name: verbose
+              type: string
+            - default: >-
+                registry.redhat.io/openshift-pipelines/pipelines-git-init-rhel8@sha256:55b0686bbd045c9c77820686318f8a5ff2aff06de566b067f408d27a93bf153c
+              description: The image providing the git-init binary that this Task runs.
+              name: gitInitImage
+              type: string
+            - default: /tekton/home
+              description: >
+                Absolute path to the user's home directory. Set this explicitly
+                if you are running the image as a non-root user or have
+                overridden
+
+                the gitInitImage param with an image containing custom user
+                configuration.
+              name: userHome
+              type: string
+          results:
+            - description: The precise commit SHA that was fetched by this Task.
+              name: commit
+            - description: The precise URL that was fetched by this Task.
+              name: url
+          steps:
+            - env:
+                - name: HOME
+                  value: $(params.userHome)
+                - name: PARAM_URL
+                  value: $(params.url)
+                - name: PARAM_REVISION
+                  value: $(params.revision)
+                - name: PARAM_REFSPEC
+                  value: $(params.refspec)
+                - name: PARAM_SUBMODULES
+                  value: $(params.submodules)
+                - name: PARAM_DEPTH
+                  value: $(params.depth)
+                - name: PARAM_SSL_VERIFY
+                  value: $(params.sslVerify)
+                - name: PARAM_SUBDIRECTORY
+                  value: $(params.subdirectory)
+                - name: PARAM_DELETE_EXISTING
+                  value: $(params.deleteExisting)
+                - name: PARAM_HTTP_PROXY
+                  value: $(params.httpProxy)
+                - name: PARAM_HTTPS_PROXY
+                  value: $(params.httpsProxy)
+                - name: PARAM_NO_PROXY
+                  value: $(params.noProxy)
+                - name: PARAM_VERBOSE
+                  value: $(params.verbose)
+                - name: PARAM_SPARSE_CHECKOUT_DIRECTORIES
+                  value: $(params.sparseCheckoutDirectories)
+                - name: PARAM_USER_HOME
+                  value: $(params.userHome)
+                - name: WORKSPACE_OUTPUT_PATH
+                  value: $(workspaces.output.path)
+                - name: WORKSPACE_SSH_DIRECTORY_BOUND
+                  value: $(workspaces.ssh-directory.bound)
+                - name: WORKSPACE_SSH_DIRECTORY_PATH
+                  value: $(workspaces.ssh-directory.path)
+                - name: WORKSPACE_BASIC_AUTH_DIRECTORY_BOUND
+                  value: $(workspaces.basic-auth.bound)
+                - name: WORKSPACE_BASIC_AUTH_DIRECTORY_PATH
+                  value: $(workspaces.basic-auth.path)
+              image: $(params.gitInitImage)
+              name: clone
+              resources: {}
+              script: >
+                #!/usr/bin/env sh
+
+                set -eu
+
+
+                if [ "${PARAM_VERBOSE}" = "true" ] ; then
+                  set -x
+                fi
+
+
+                if [ "${WORKSPACE_BASIC_AUTH_DIRECTORY_BOUND}" = "true" ] ; then
+                  cp "${WORKSPACE_BASIC_AUTH_DIRECTORY_PATH}/.git-credentials" "${PARAM_USER_HOME}/.git-credentials"
+                  cp "${WORKSPACE_BASIC_AUTH_DIRECTORY_PATH}/.gitconfig" "${PARAM_USER_HOME}/.gitconfig"
+                  chmod 400 "${PARAM_USER_HOME}/.git-credentials"
+                  chmod 400 "${PARAM_USER_HOME}/.gitconfig"
+                fi
+
+
+                if [ "${WORKSPACE_SSH_DIRECTORY_BOUND}" = "true" ] ; then
+                  cp -R "${WORKSPACE_SSH_DIRECTORY_PATH}" "${PARAM_USER_HOME}"/.ssh
+                  chmod 700 "${PARAM_USER_HOME}"/.ssh
+                  chmod -R 400 "${PARAM_USER_HOME}"/.ssh/*
+                fi
+
+
+                CHECKOUT_DIR="${WORKSPACE_OUTPUT_PATH}/${PARAM_SUBDIRECTORY}"
+
+
+                cleandir() {
+                  # Delete any existing contents of the repo directory if it exists.
+                  #
+                  # We don't just "rm -rf ${CHECKOUT_DIR}" because ${CHECKOUT_DIR} might be "/"
+                  # or the root of a mounted volume.
+                  if [ -d "${CHECKOUT_DIR}" ] ; then
+                    # Delete non-hidden files and directories
+                    rm -rf "${CHECKOUT_DIR:?}"/*
+                    # Delete files and directories starting with . but excluding ..
+                    rm -rf "${CHECKOUT_DIR}"/.[!.]*
+                    # Delete files and directories starting with .. plus any other character
+                    rm -rf "${CHECKOUT_DIR}"/..?*
+                  fi
+                }
+
+
+                if [ "${PARAM_DELETE_EXISTING}" = "true" ] ; then
+                  cleandir
+                fi
+
+
+                test -z "${PARAM_HTTP_PROXY}" || export
+                HTTP_PROXY="${PARAM_HTTP_PROXY}"
+
+                test -z "${PARAM_HTTPS_PROXY}" || export
+                HTTPS_PROXY="${PARAM_HTTPS_PROXY}"
+
+                test -z "${PARAM_NO_PROXY}" || export
+                NO_PROXY="${PARAM_NO_PROXY}"
+
+
+                /ko-app/git-init \
+                  -url="${PARAM_URL}" \
+                  -revision="${PARAM_REVISION}" \
+                  -refspec="${PARAM_REFSPEC}" \
+                  -path="${CHECKOUT_DIR}" \
+                  -sslVerify="${PARAM_SSL_VERIFY}" \
+                  -submodules="${PARAM_SUBMODULES}" \
+                  -depth="${PARAM_DEPTH}" \
+                  -sparseCheckoutDirectories="${PARAM_SPARSE_CHECKOUT_DIRECTORIES}"
+                cd "${CHECKOUT_DIR}"
+
+                RESULT_SHA="$(git rev-parse HEAD)"
+
+                EXIT_CODE="$?"
+
+                if [ "${EXIT_CODE}" != 0 ] ; then
+                  exit "${EXIT_CODE}"
+                fi
+
+                printf "%s" "${RESULT_SHA}" > "$(results.commit.path)"
+
+                printf "%s" "${PARAM_URL}" > "$(results.url.path)"
+          workspaces:
+            - description: >-
+                The git repo will be cloned onto the volume backing this
+                Workspace.
+              name: output
+            - description: >
+                A .ssh directory with private key, known_hosts, config, etc.
+                Copied to
+
+                the user's home before git commands are executed. Used to
+                authenticate
+
+                with the git remote when performing the clone. Binding a Secret
+                to this
+
+                Workspace is strongly recommended over other volume types.
+              name: ssh-directory
+              optional: true
+            - description: >
+                A Workspace containing a .gitconfig and .git-credentials file.
+                These
+
+                will be copied to the user's home before any git commands are
+                run. Any
+
+                other files in this Workspace are ignored. It is strongly
+                recommended
+
+                to use ssh-directory over basic-auth whenever possible and to
+                bind a
+
+                Secret to this Workspace over other volume types.
+              name: basic-auth
+              optional: true
+    quarkus-getting-started-pipeline-test-jzfa3k-maven:
+      pipelineTaskName: maven
+      status:
+        completionTime: '2022-05-17T19:17:16Z'
+        conditions:
+          - lastTransitionTime: '2022-05-17T19:17:16Z'
+            message: All Steps have completed executing
+            reason: Succeeded
+            status: 'True'
+            type: Succeeded
+        podName: quarkus-getting-started-pipeline-test-jzfa3k-maven-pod
+        startTime: '2022-05-17T19:16:51Z'
+        steps:
+          - container: step-mvn-settings
+            imageID: >-
+              registry.redhat.io/ubi8/ubi-minimal@sha256:574f201d7ed185a9932c91cef5d397f5298dff9df08bc2ebb266c6d1e6284cd1
+            name: mvn-settings
+            terminated:
+              containerID: >-
+                cri-o://6dd27ff92838b96187fb9b0ef24dea1fbbbc607274c4296140902b2206511926
+              exitCode: 0
+              finishedAt: '2022-05-17T19:16:58Z'
+              reason: Completed
+              startedAt: '2022-05-17T19:16:58Z'
+          - container: step-mvn-goals
+            imageID: >-
+              gcr.io/cloud-builders/mvn@sha256:57523fc43394d6d9d2414ee8d1c85ed7a13460cbb268c3cd16d28cfb3859e641
+            name: mvn-goals
+            terminated:
+              containerID: >-
+                cri-o://a966a6e56e4881997dc8d2f916258edd99c1965e7d198385283e3014013be051
+              exitCode: 0
+              finishedAt: '2022-05-17T19:17:16Z'
+              reason: Completed
+              startedAt: '2022-05-17T19:16:59Z'
+        taskSpec:
+          description: This Task can be used to run a Maven build.
+          params:
+            - default: >-
+                image-registry.openshift-image-registry.svc:5000/openshift/java:latest
+              description: Maven base image
+              name: MAVEN_IMAGE
+              type: string
+            - default:
+                - package
+              description: maven goals to run
+              name: GOALS
+              type: array
+            - default: ''
+              description: The Maven repository mirror url
+              name: MAVEN_MIRROR_URL
+              type: string
+            - default: ''
+              description: The username for the server
+              name: SERVER_USER
+              type: string
+            - default: ''
+              description: The password for the server
+              name: SERVER_PASSWORD
+              type: string
+            - default: ''
+              description: The username for the proxy server
+              name: PROXY_USER
+              type: string
+            - default: ''
+              description: The password for the proxy server
+              name: PROXY_PASSWORD
+              type: string
+            - default: ''
+              description: Port number for the proxy server
+              name: PROXY_PORT
+              type: string
+            - default: ''
+              description: Proxy server Host
+              name: PROXY_HOST
+              type: string
+            - default: ''
+              description: Non proxy server host
+              name: PROXY_NON_PROXY_HOSTS
+              type: string
+            - default: http
+              description: Protocol for the proxy ie http or https
+              name: PROXY_PROTOCOL
+              type: string
+            - default: .
+              description: >-
+                The context directory within the repository for sources on which
+                we want to execute maven goals.
+              name: CONTEXT_DIR
+              type: string
+          steps:
+            - image: >-
+                registry.redhat.io/ubi8/ubi-minimal@sha256:574f201d7ed185a9932c91cef5d397f5298dff9df08bc2ebb266c6d1e6284cd1
+              name: mvn-settings
+              resources: {}
+              script: >
+                #!/usr/bin/env bash
+
+
+                [[ -f $(workspaces.maven-settings.path)/settings.xml ]] && \
+
+                echo 'using existing
+                $(workspaces.maven-settings.path)/settings.xml' && exit 0
+
+
+                cat > $(workspaces.maven-settings.path)/settings.xml <<EOF
+
+                <settings>
+                  <servers>
+                    <!-- The servers added here are generated from environment variables. Don't change. -->
+                    <!-- ### SERVER's USER INFO from ENV ### -->
+                  </servers>
+                  <mirrors>
+                    <!-- The mirrors added here are generated from environment variables. Don't change. -->
+                    <!-- ### mirrors from ENV ### -->
+                  </mirrors>
+                  <proxies>
+                    <!-- The proxies added here are generated from environment variables. Don't change. -->
+                    <!-- ### HTTP proxy from ENV ### -->
+                  </proxies>
+                </settings>
+
+                EOF
+
+
+                xml=""
+
+                if [ -n "$(params.PROXY_HOST)" -a -n "$(params.PROXY_PORT)" ];
+                then
+                  xml="<proxy>\
+                    <id>genproxy</id>\
+                    <active>true</active>\
+                    <protocol>$(params.PROXY_PROTOCOL)</protocol>\
+                    <host>$(params.PROXY_HOST)</host>\
+                    <port>$(params.PROXY_PORT)</port>"
+                  if [ -n "$(params.PROXY_USER)" -a -n "$(params.PROXY_PASSWORD)" ]; then
+                    xml="$xml\
+                        <username>$(params.PROXY_USER)</username>\
+                        <password>$(params.PROXY_PASSWORD)</password>"
+                  fi
+                  if [ -n "$(params.PROXY_NON_PROXY_HOSTS)" ]; then
+                    xml="$xml\
+                        <nonProxyHosts>$(params.PROXY_NON_PROXY_HOSTS)</nonProxyHosts>"
+                  fi
+                  xml="$xml\
+                      </proxy>"
+                  sed -i "s|<!-- ### HTTP proxy from ENV ### -->|$xml|" $(workspaces.maven-settings.path)/settings.xml
+                fi
+
+
+                if [ -n "$(params.SERVER_USER)" -a -n
+                "$(params.SERVER_PASSWORD)" ]; then
+                  xml="<server>\
+                    <id>serverid</id>"
+                  xml="$xml\
+                        <username>$(params.SERVER_USER)</username>\
+                        <password>$(params.SERVER_PASSWORD)</password>"
+                  xml="$xml\
+                      </server>"
+                  sed -i "s|<!-- ### SERVER's USER INFO from ENV ### -->|$xml|" $(workspaces.maven-settings.path)/settings.xml
+                fi
+
+
+                if [ -n "$(params.MAVEN_MIRROR_URL)" ]; then
+                  xml="    <mirror>\
+                    <id>mirror.default</id>\
+                    <url>$(params.MAVEN_MIRROR_URL)</url>\
+                    <mirrorOf>central</mirrorOf>\
+                  </mirror>"
+                  sed -i "s|<!-- ### mirrors from ENV ### -->|$xml|" $(workspaces.maven-settings.path)/settings.xml
+                fi
+            - args:
+                - '-s'
+                - $(workspaces.maven-settings.path)/settings.xml
+                - $(params.GOALS)
+              command:
+                - /usr/bin/mvn
+              image: $(params.MAVEN_IMAGE)
+              name: mvn-goals
+              resources: {}
+              workingDir: $(workspaces.source.path)/$(params.CONTEXT_DIR)
+          workspaces:
+            - description: The workspace consisting of maven project.
+              name: source
+            - description: >-
+                The workspace consisting of the custom maven settings provided
+                by the user.
+              name: maven-settings
+    quarkus-getting-started-pipeline-test-jzfa3k-s2i-java-11-custom:
+      pipelineTaskName: s2i-java-11-custom
+      status:
+        conditions:
+          - lastTransitionTime: '2022-05-17T19:17:25Z'
+            message: Not all Steps in the Task have finished executing
+            reason: Running
+            status: Unknown
+            type: Succeeded
+        podName: quarkus-getting-started-pip62a49b5463863da871a19e60bfc4b121-pod
+        startTime: '2022-05-17T19:17:16Z'
+        steps:
+          - container: step-gen-env-file
+            imageID: >-
+              registry.redhat.io/ocp-tools-43-tech-preview/source-to-image-rhel8@sha256:562dbdac04ae9260e21d457585b3251fd8cc5310966f8fc544fb77dc544c92f8
+            name: gen-env-file
+            terminated:
+              containerID: >-
+                cri-o://10fc08fd505879017234b834a42e97b5d1cbc96ce93b0aa2f39435f6d2199485
+              exitCode: 0
+              finishedAt: '2022-05-17T19:17:27Z'
+              reason: Completed
+              startedAt: '2022-05-17T19:17:27Z'
+          - container: step-generate
+            imageID: >-
+              registry.redhat.io/ocp-tools-43-tech-preview/source-to-image-rhel8@sha256:562dbdac04ae9260e21d457585b3251fd8cc5310966f8fc544fb77dc544c92f8
+            name: generate
+            terminated:
+              containerID: >-
+                cri-o://5b05f469434b5333e7f30df915e9baaf9f951173fea236a27ddb302e907d3e1a
+              exitCode: 0
+              finishedAt: '2022-05-17T19:17:27Z'
+              reason: Completed
+              startedAt: '2022-05-17T19:17:27Z'
+          - container: step-build
+            imageID: >-
+              registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+            name: build
+            running:
+              startedAt: '2022-05-17T19:17:24Z'
+          - container: step-push-tag
+            imageID: >-
+              registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+            name: push-tag
+            running:
+              startedAt: '2022-05-17T19:17:24Z'
+          - container: step-push-latest
+            imageID: >-
+              registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+            name: push-latest
+            running:
+              startedAt: '2022-05-17T19:17:25Z'
+          - container: step-digest-to-results
+            imageID: >-
+              registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+            name: digest-to-results
+            running:
+              startedAt: '2022-05-17T19:17:25Z'
+        taskSpec:
+          description: >-
+            s2i-java-11 task clones a Git repository and builds and pushes a
+            container image using S2I and a Java 11 builder image.
+          params:
+            - default: .
+              description: The location of the path to run s2i from
+              name: PATH_CONTEXT
+              type: string
+            - default: 'true'
+              description: >-
+                Verify the TLS on the registry endpoint (for push/pull to a
+                non-TLS registry)
+              name: TLSVERIFY
+              type: string
+            - default: ''
+              description: Additional Maven arguments
+              name: MAVEN_ARGS_APPEND
+              type: string
+            - default: 'false'
+              description: Remove the Maven repository after the artifact is built
+              name: MAVEN_CLEAR_REPO
+              type: string
+            - default: ''
+              description: The base URL of a mirror used for retrieving artifacts
+              name: MAVEN_MIRROR_URL
+              type: string
+            - description: Location of the repo where image has to be pushed
+              name: IMAGE_NAME
+              type: string
+            - default: latest
+              description: The tag of the image to be pushed
+              name: IMAGE_TAG
+              type: string
+          results:
+            - description: Digest of the image just built.
+              name: IMAGE_DIGEST
+            - description: Name of the image just built.
+              name: IMAGE_NAME
+          steps:
+            - args:
+                - |-
+                  echo "MAVEN_CLEAR_REPO=$(params.MAVEN_CLEAR_REPO)" > env-file
+
+                  [[ '$(params.MAVEN_ARGS_APPEND)' != "" ]] &&
+                    echo "MAVEN_ARGS_APPEND=$(params.MAVEN_ARGS_APPEND)" >> env-file
+
+                  [[ '$(params.MAVEN_MIRROR_URL)' != "" ]] &&
+                    echo "MAVEN_MIRROR_URL=$(params.MAVEN_MIRROR_URL)" >> env-file
+
+                  echo "Generated Env file"
+                  echo "------------------------------"
+                  cat env-file
+                  echo "------------------------------"
+              command:
+                - /bin/sh
+                - '-c'
+              image: >-
+                registry.redhat.io/ocp-tools-43-tech-preview/source-to-image-rhel8@sha256:562dbdac04ae9260e21d457585b3251fd8cc5310966f8fc544fb77dc544c92f8
+              name: gen-env-file
+              resources: {}
+              volumeMounts:
+                - mountPath: /env-params
+                  name: envparams
+              workingDir: /env-params
+            - command:
+                - s2i
+                - build
+                - $(params.PATH_CONTEXT)
+                - >-
+                  image-registry.openshift-image-registry.svc:5000/openshift/java:11
+                - '--image-scripts-url'
+                - 'image:///usr/local/s2i'
+                - '--as-dockerfile'
+                - /gen-source/Dockerfile.gen
+                - '--environment-file'
+                - /env-params/env-file
+              image: >-
+                registry.redhat.io/ocp-tools-43-tech-preview/source-to-image-rhel8@sha256:562dbdac04ae9260e21d457585b3251fd8cc5310966f8fc544fb77dc544c92f8
+              name: generate
+              resources: {}
+              volumeMounts:
+                - mountPath: /gen-source
+                  name: gen-source
+                - mountPath: /env-params
+                  name: envparams
+              workingDir: $(workspaces.source.path)
+            - command:
+                - buildah
+                - bud
+                - '--storage-driver=vfs'
+                - '--tls-verify=$(params.TLSVERIFY)'
+                - '--layers'
+                - '-f'
+                - /gen-source/Dockerfile.gen
+                - '-t'
+                - '$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
+                - '-t'
+                - '$(params.IMAGE_NAME):latest'
+                - .
+              image: >-
+                registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+              name: build
+              resources: {}
+              volumeMounts:
+                - mountPath: /var/lib/containers
+                  name: varlibcontainers
+                - mountPath: /gen-source
+                  name: gen-source
+              workingDir: /gen-source
+            - command:
+                - buildah
+                - push
+                - '--storage-driver=vfs'
+                - '--tls-verify=$(params.TLSVERIFY)'
+                - '--digestfile'
+                - $(workspaces.source.path)/image-digest
+                - '$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
+                - 'docker://$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
+              image: >-
+                registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+              name: push-tag
+              resources: {}
+              volumeMounts:
+                - mountPath: /var/lib/containers
+                  name: varlibcontainers
+            - command:
+                - buildah
+                - push
+                - '--storage-driver=vfs'
+                - '--tls-verify=$(params.TLSVERIFY)'
+                - '--digestfile'
+                - $(workspaces.source.path)/image-digest
+                - '$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
+                - 'docker://$(params.IMAGE_NAME):latest'
+              image: >-
+                registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+              name: push-latest
+              resources: {}
+              volumeMounts:
+                - mountPath: /var/lib/containers
+                  name: varlibcontainers
+            - image: >-
+                registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
+              name: digest-to-results
+              resources: {}
+              script: >
+                cat $(workspaces.source.path)/image-digest | tee
+                /tekton/results/IMAGE_DIGEST && echo "$(params.IMAGE_NAME)" >
+                /tekton/results/IMAGE_NAME
+          volumes:
+            - emptyDir: {}
+              name: varlibcontainers
+            - emptyDir: {}
+              name: gen-source
+            - emptyDir: {}
+              name: envparams
+          workspaces:
+            - mountPath: /workspace/source
+              name: source

@@ -2,7 +2,7 @@
 kind: PersistentVolume
 ***REMOVED***
   name: tekton-build-volume-test
-  namespace: demo-ci-cd-test
+***REMOVED***
 ***REMOVED***
     argocd.argoproj.io/sync-wave: "0"
 spec:

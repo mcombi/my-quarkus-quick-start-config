@@ -7,6 +7,7 @@ kind: Task
     argocd.argoproj.io/sync-wave: "3"
   name: git-update-deployment
 ***REMOVED***
+***REMOVED***
     app.kubernetes.io/version: '0.1'
     operator.tekton.dev/provider-type: community
 spec:
@@ -51,9 +52,6 @@ spec:
         echo "### kustomization.yaml ###"
         echo "##########################"
         cat kustomization.yaml
-        
-
-        
 
     - name: git-commit
       image: docker.io/alpine/git:v2.26.2
