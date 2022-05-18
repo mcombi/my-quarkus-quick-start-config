@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 ***REMOVED***
-  name: quarkus-getting-started-pipeline-test
+  name: quick-start-pipeline-test
 ***REMOVED***
 ***REMOVED***
     argocd.argoproj.io/sync-wave: "2"
