@@ -14,5 +14,5 @@ spec:
     name: el-quick-start
     weight: 100
   port:
-    targetPort: server
+    targetPort: http-listener
   wildcardPolicy: None
