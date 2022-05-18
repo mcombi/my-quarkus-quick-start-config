@@ -91,11 +91,11 @@ spec:
         - name: GIT_USERNAME
           value: mcombi
         - name: GIT_PASSWORD
-          value: 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
+          value: CHANGEME
         - name: CURRENT_IMAGE
-          value: mcombi/quarkus-getting-started
+          value: quay.io/mcombi/quarkus-getting-started
         - name: NEW_IMAGE
-          value: mcombi/quarkus-getting-started
+          value: quay.io/mcombi/quarkus-getting-started
         - name: NEW_DIGEST
           value: $(tasks.git-clone.results.commit)
         - name: KUSTOMIZATION_PATH
