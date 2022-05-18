@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: el-quick-start
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+  labels:
+    app: quick-start
+    app.kubernetes.io/instance: quick-start
+spec:
+  to:
+    kind: Service
+    name: el-quick-start
+    weight: 100
+  port:
+    targetPort: server
+  wildcardPolicy: None
