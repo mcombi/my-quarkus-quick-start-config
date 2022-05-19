@@ -1,0 +1,41 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: quick-start-pipeline-promote
+  namespace: demo-tekton-build-env
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+
+  params: 
+    - default: "lates"
+      description: Image tag
+      name: IMAGE_TAG
+      type: string
+  tasks:
+    - name: git-update-deployment
+      params:
+        - name: GIT_REPOSITORY
+          value: 'https://github.com/mcombi/my-quarkus-quick-start-config.git'
+        - name: GIT_USERNAME
+          value: mcombi
+        - name: GIT_PASSWORD
+          value: CHANGEME
+        - name: CURRENT_IMAGE
+          value: quay.io/mcombi/quarkus-getting-started
+        - name: NEW_IMAGE
+          value: quay.io/mcombi/quarkus-getting-started
+        - name: NEW_DIGEST
+          value: $(params.IMAGE_TAG)
+        - name: KUSTOMIZATION_PATH
+          value: quick-start/overlays/uat
+      taskRef:
+         kind: Task
+         name: git-promote-deployment
+      workspaces:
+        - name: workspace
+          workspace: source
+  workspaces:
+    - name: source
+
+
