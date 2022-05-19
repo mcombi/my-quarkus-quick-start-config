@@ -16,3 +16,6 @@ resources:
   - triggers/github-secret.yaml
   - triggers/event-listener.yaml
   - triggers/route.yaml
+
+  - promote-pipeline.yaml
+  - promote-task.yaml
