@@ -118,11 +118,16 @@ spec:
           name: varlibcontainers
         - mountPath: /gen-source
           name: gen-source
+        - name: quay-auth-secret
+          mountPath: /etc/secret-volume
+          readOnly: true
       workingDir: /gen-source
     - command:
         - buildah
         - push
         - '--storage-driver=vfs'
+        - '--authfile'
+        - /etc/secret-volume/config.json
         - '--tls-verify=$(params.TLSVERIFY)'
         - '--digestfile'
         - $(workspaces.source.path)/image-digest
@@ -135,10 +140,15 @@ spec:
       volumeMounts:
         - mountPath: /var/lib/containers
           name: varlibcontainers
+        - name: quay-auth-secret
+          mountPath: /etc/secret-volume
+          readOnly: true
     - command:
         - buildah
         - push
         - '--storage-driver=vfs'
+        - '--authfile'
+        - /etc/secret-volume/config.json
         - '--tls-verify=$(params.TLSVERIFY)'
         - '--digestfile'
         - $(workspaces.source.path)/image-digest
@@ -151,6 +161,9 @@ spec:
       volumeMounts:
         - mountPath: /var/lib/containers
           name: varlibcontainers
+        - name: quay-auth-secret
+          mountPath: /etc/secret-volume
+          readOnly: true
     - image: >-
         registry.redhat.io/rhel8/buildah@sha256:180c4d9849b6ab0e5465d30d4f3a77765cf0d852ca1cb1efb59d6e8c9f90d467
       name: digest-to-results
@@ -159,6 +172,7 @@ spec:
         cat $(workspaces.source.path)/image-digest | tee
         /tekton/results/IMAGE_DIGEST && echo "$(params.IMAGE_NAME)" >
         /tekton/results/IMAGE_NAME
+
   volumes:
     - emptyDir: {}
       name: varlibcontainers
@@ -166,6 +180,12 @@ spec:
       name: gen-source
     - emptyDir: {}
       name: envparams
+    - name: quay-auth-secret
+      secret:
+        secretName: quay-credentials
+        items:
+          - key: .dockerconfigjson
+            path: config.json
   workspaces:
     - mountPath: /workspace/source
       name: source
