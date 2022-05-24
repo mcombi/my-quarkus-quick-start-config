@@ -2,6 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: quick-start-uat
 resources:
-  - quick-start.yaml
-  - service.yaml
-  - route.yaml
+- quick-start.yaml
+- service.yaml
+- route.yaml
+images:
+- name: quay.io/mcombi/quarkus-getting-started
+  newName: quay.io/mcombi/quarkus-getting-started
+  newTag: 6095688f88a15ea658b06b776c3214d8333affeb
