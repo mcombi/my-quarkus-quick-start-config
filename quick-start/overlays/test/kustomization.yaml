@@ -7,4 +7,3 @@ resources:
 - route.yaml
 commonLabels:
   app: quick-start
-
