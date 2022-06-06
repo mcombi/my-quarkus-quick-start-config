@@ -8,10 +8,10 @@ resources:
   - pvc.yaml
   - promote-pipeline.yaml
   - promote-task.yaml
-  - promote-pipeline-run.yaml
   #- pv.yaml
   - quay-secret.yaml
   #- build-service-account.yaml
+  - github-secret.yaml
   - github-service-account.yaml
   - update-config-version-task-test.yaml
   - update-config-version-task.yaml
@@ -21,4 +21,5 @@ resources:
   - triggers/github-secret.yaml
   - triggers/event-listener.yaml
   - triggers/route.yaml
+
 
