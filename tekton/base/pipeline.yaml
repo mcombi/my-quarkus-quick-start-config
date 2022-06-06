@@ -104,7 +104,7 @@ spec:
          - s2i-java-11-custom
       taskRef:
          kind: Task
-         name: git-update-deployment
+         name: git-update-deployment-test
       workspaces:
         - name: workspace
           workspace: source
