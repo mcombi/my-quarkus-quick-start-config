@@ -1,7 +1,8 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 ***REMOVED***
-  generateName: build-deploy-$(tt.params.git-repo-name)-
+  generateName: build-deploy-$(tt.params.git-repo-name)-test
+  name: promote-pipeline-run
 spec:
   serviceAccountName: pipeline
   pipelineRef:
