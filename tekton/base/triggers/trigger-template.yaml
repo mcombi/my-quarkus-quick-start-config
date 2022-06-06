@@ -22,7 +22,7 @@ spec:
       spec:
         serviceAccountName: pipeline
         serviceAccountNames:
-          - taskName: git-update-deployment
+          - taskName: git-update-deployment-test
             serviceAccountName: github-service-account
 
         pipelineRef:
