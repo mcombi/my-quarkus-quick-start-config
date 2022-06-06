@@ -1,26 +1,26 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 ***REMOVED***
-  generateName: build-deploy-$(tt.params.git-repo-name)-test
-  spec:
-    serviceAccountName: github-service-account
-    pipelineRef:
-      name: quick-start-pipeline-promote
-    params:
-      - name: deployment-name
-        value: $(tt.params.git-repo-name)
-      - name: git-url
-        value: $(tt.params.git-repo-url)
-      - name: git-revision
-        value: $(tt.params.git-revision)
-      - name: REPO_URL
-        value: $(tt.params.git-repo-url)
-    workspaces:
-      - name: source
-        volumeClaimTemplate:
-          spec:
-            accessModes:
-              - ReadWriteOnce
-            resources:
-              requests:
-                storage: 500Mi
+  generateName: build-deploy-$(tt.params.git-repo-name)-
+spec:
+  serviceAccountName: pipeline
+  pipelineRef:
+    name: quick-start-pipeline-promote
+  params:
+    - name: deployment-name
+      value: $(tt.params.git-repo-name)
+    - name: git-url
+      value: $(tt.params.git-repo-url)
+    - name: git-revision
+      value: $(tt.params.git-revision)
+    - name: REPO_URL
+      value: $(tt.params.git-repo-url)
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 500Mi
