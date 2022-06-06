@@ -18,7 +18,7 @@ resources:
   - triggers/trigger-template.yaml
   - triggers/trigger-binding.yaml
   - triggers/trigger.yaml
-  - triggers/github-quay-secret.yaml
+  - triggers/github-secret.yaml
   - triggers/event-listener.yaml
   - triggers/route.yaml
 
