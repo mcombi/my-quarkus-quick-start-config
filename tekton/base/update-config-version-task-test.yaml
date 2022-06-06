@@ -68,8 +68,6 @@ spec:
       image: docker.io/alpine/git:v2.26.2
       workingDir: $(workspaces.workspace.path)
       script: |
-        echo username: ${GITUSERNAME}
-        echo pass: ${GITTOKEN}
         cd git-update-digest-workdir
         git config user.email "tekton-pipelines-ci@redhat.com"
         git config user.name "tekton-pipelines-ci"
@@ -77,7 +75,7 @@ spec:
         git add $(params.KUSTOMIZATION_PATH)/kustomization.yaml
         git commit -m "[$(context.taskRun.name)] Image digest updated"
         # git commit -m "[${PIPELINERUN_NAME}] Image digest updated"
-        git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#https://(.*)#https://$(GITUSERNAME):$(GITTOKEN)@\1#g")
+        git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#https://(.*)#https://${GITUSERNAME}:${GITTOKEN}@\1#g")
         git push auth-origin main
         RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
         EXIT_CODE="$?"
