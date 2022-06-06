@@ -18,7 +18,6 @@ resources:
 #  - triggers/github-quay-secret.yaml
 #  - triggers/event-listener.yaml
 #  - triggers/route.yaml
-
   - promote-pipeline.yaml
   - promote-task.yaml
   - promote-pipeline-run.yaml
