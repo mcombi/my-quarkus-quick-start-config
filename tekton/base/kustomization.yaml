@@ -15,10 +15,10 @@ resources:
   - github-service-account.yaml
   - update-config-version-task-test.yaml
 #  - update-config-version-task.yaml
-#  - triggers/trigger-template.yaml
-#  - triggers/trigger-binding.yaml
-#  - triggers/trigger.yaml
-#  - triggers/github-quay-secret.yaml
-#  - triggers/event-listener.yaml
-#  - triggers/route.yaml
+  - triggers/trigger-template.yaml
+  - triggers/trigger-binding.yaml
+  - triggers/trigger.yaml
+  - triggers/github-quay-secret.yaml
+  - triggers/event-listener.yaml
+  - triggers/route.yaml
 
