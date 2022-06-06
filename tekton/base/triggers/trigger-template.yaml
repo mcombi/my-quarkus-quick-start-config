@@ -23,7 +23,7 @@ spec:
         serviceAccountName: pipeline
         serviceAccountNames:
           - taskName: git-update-deployment
-            serviceAccount: github-service-account
+            serviceAccountName: github-service-account
 
         pipelineRef:
           name: quick-start-pipeline-test
