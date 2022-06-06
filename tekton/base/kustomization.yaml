@@ -7,15 +7,18 @@ resources:
   - storage-class.yaml
   - pvc.yaml
   #- pv.yaml
-  - secret.yaml
-  #- service-account.yaml
-  - update-config-version-task.yaml
-  - triggers/trigger-template.yaml
-  - triggers/trigger-binding.yaml
-  - triggers/trigger.yaml
-  - triggers/github-secret.yaml
-  - triggers/event-listener.yaml
-  - triggers/route.yaml
+  - quay-secret.yaml
+  #- build-service-account.yaml
+  - github-service-account.yaml
+  - update-config-version-task-test.yaml
+#  - update-config-version-task.yaml
+#  - triggers/trigger-template.yaml
+#  - triggers/trigger-binding.yaml
+#  - triggers/trigger.yaml
+#  - triggers/github-quay-secret.yaml
+#  - triggers/event-listener.yaml
+#  - triggers/route.yaml
 
   - promote-pipeline.yaml
   - promote-task.yaml
+  - promote-pipeline-run.yaml
