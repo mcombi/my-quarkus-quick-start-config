@@ -14,7 +14,7 @@ resources:
   #- build-service-account.yaml
   - github-service-account.yaml
   - update-config-version-task-test.yaml
-#  - update-config-version-task.yaml
+  - update-config-version-task.yaml
   - triggers/trigger-template.yaml
   - triggers/trigger-binding.yaml
   - triggers/trigger.yaml
