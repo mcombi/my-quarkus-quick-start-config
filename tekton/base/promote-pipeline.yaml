@@ -8,7 +8,7 @@ kind: Pipeline
 spec:
 
   params: 
-    - default: "lates"
+    - default: "latest"
       description: Image tag
       name: IMAGE_TAG
       type: string
@@ -31,7 +31,7 @@ spec:
           value: quick-start/overlays/uat
       taskRef:
          kind: Task
-         name: git-promote-deployment
+         name: git-update-deployment-test
       workspaces:
         - name: workspace
           workspace: source
