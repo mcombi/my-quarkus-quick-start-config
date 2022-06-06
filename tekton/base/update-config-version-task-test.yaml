@@ -69,7 +69,7 @@ spec:
       workingDir: $(workspaces.workspace.path)
       script: |
         echo username: ${GITUSERNAME}
-        echo username: ${env.GITUSERNAME}
+        echo pass: ${GITTOKEN}
         cd git-update-digest-workdir
         git config user.email "tekton-pipelines-ci@redhat.com"
         git config user.name "tekton-pipelines-ci"
