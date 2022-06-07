@@ -11,7 +11,7 @@ resources:
   #- pv.yaml
   - quay-secret.yaml
   #- build-service-account.yaml
-  - github-secret.yaml
+  #- github-secret.yaml
   - github-secret-sealed.yaml
   - github-service-account.yaml
   - update-config-version-task-test.yaml
