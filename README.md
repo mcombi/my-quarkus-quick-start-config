@@ -21,5 +21,5 @@ sudo wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18
 Get Cert from controller 
 kubeseal --fetch-cert > public-cert.pem
 
-Seal the secret:
+Seal the secret (replace username and token in github-secret-ss):
 kubeseal --format yaml --cert ../../public-cert.pem < github-secret-ss.yaml > github-secret-sealed.yaml
