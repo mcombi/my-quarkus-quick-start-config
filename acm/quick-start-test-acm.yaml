@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: quick-start-test
+---
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: quick-start-test
+  namespace: quick-start-test
+spec:
+  componentKinds:
+    - group: apps.open-cluster-management.io
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - quick-start-test
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  annotations:
+    apps.open-cluster-management.io/reconcile-rate: high
+  name: ggithubcom-mcombi-my-quarkus-quick-start-conf
+  namespace: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns
+spec:
+  type: Git
+  pathname: 'https://github.com/mcombi/my-quarkus-quick-start-config.git'
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  annotations:
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-path: quick-start/overlays/test
+    apps.open-cluster-management.io/reconcile-option: merge
+  labels:
+    app: quick-start-test
+  name: quick-start-test-subscription-1
+  namespace: quick-start-test
+spec:
+  channel: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns/ggithubcom-mcombi-my-quarkus-quick-start-conf
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: quick-start-test-placement-1
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  labels:
+    app: quick-start-test
+  name: quick-start-test-placement-1
+  namespace: quick-start-test
+spec:
+  clusterSelector:
+    matchLabels:
+      'local-cluster': 'true'

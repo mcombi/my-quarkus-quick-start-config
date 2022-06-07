@@ -84,7 +84,7 @@ spec:
       workspaces:
         - name: source
           workspace: source
-    - name: git-update-deployment
+    - name: git-update-deployment-test
       params:
         - name: GIT_REPOSITORY
           value: 'https://github.com/mcombi/my-quarkus-quick-start-config.git'
@@ -104,7 +104,7 @@ spec:
          - s2i-java-11-custom
       taskRef:
          kind: Task
-         name: git-update-deployment
+         name: git-update-deployment-test
       workspaces:
         - name: workspace
           workspace: source
