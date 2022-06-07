@@ -6,14 +6,14 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: "demo"
+  project: default
   source:
     repoURL: 'https://github.com/mcombi/my-quarkus-quick-start-config.git'
     path: tekton/base
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: demo-tekton-build-env
+    namespace: a2a-demo-test
   syncPolicy:
     automated:
       prune: false
