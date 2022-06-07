@@ -1,0 +1,53 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+***REMOVED***
+***REMOVED***
+    apps.open-cluster-management.io/deployables: ''
+  name: quick-start
+  namespace: quick-start
+spec:
+  componentKinds:
+    - group: apps.open-cluster-management.io
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - quick-start
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+***REMOVED***
+***REMOVED***
+    apps.open-cluster-management.io/deployables: 'quick-start/quick-start-subscription-1-quick-start-overlays-test-quick-start-deployment,quick-start/quick-start-subscription-1-quick-start-overlays-test-quick-start-route-test-route,quick-start/quick-start-subscription-1-quick-start-overlays-test-quick-start-service-service'
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-path: quick-start/overlays/test
+    apps.open-cluster-management.io/reconcile-option: merge
+***REMOVED***
+    app: quick-start
+    app.kubernetes.io/part-of: quick-start
+    apps.open-cluster-management.io/reconcile-rate: medium
+  name: quick-start-subscription-1
+  namespace: quick-start
+spec:
+  channel: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns/ggithubcom-mcombi-my-quarkus-quick-start-conf
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: quick-start-placement-1
+  secondaryChannel: ''
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+***REMOVED***
+***REMOVED*** {}
+***REMOVED***
+    app: quick-start
+  name: quick-start-placement-1
+  namespace: quick-start
+spec:
+  clusterSelector:
+    matchLabels:
+      clusterID: e638001d-2cda-4dc4-8e7f-1e7d453afee8

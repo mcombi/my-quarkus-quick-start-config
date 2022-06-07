@@ -21,6 +21,10 @@ spec:
         generateName: build-deploy-$(tt.params.git-repo-name)-
       spec:
         serviceAccountName: pipeline
+        serviceAccountNames:
+          - taskName: git-update-deployment-test
+            serviceAccountName: github-service-account
+
         pipelineRef:
           name: quick-start-pipeline-test
         params:
