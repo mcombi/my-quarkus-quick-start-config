@@ -1,8 +1,0 @@
-apiVersion: tekton.dev/v1beta1
-kind: TaskRun
-***REMOVED***
-  name: git-update-deployment-1
-spec:
-  serviceAccountName: github-service-account
-  taskRef:
-    name: git-update-deployment
