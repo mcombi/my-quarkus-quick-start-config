@@ -45,8 +45,8 @@ spec:
       workingDir: $(workspaces.workspace.path)
       script: |
         rm -rf git-update-digest-workdir
-        git clone $(params.GIT_REPOSITORY) git-update-digest-workdir
-        git checkout $(params.BRANCH)
+        git clone $(params.GIT_REPOSITORY) 
+        cd git-update-digest-workdir && git checkout $(params.BRANCH)
     - name: update-digest
       image: k8s.gcr.io/kustomize/kustomize:v3.8.7
       workingDir: $(workspaces.workspace.path)
