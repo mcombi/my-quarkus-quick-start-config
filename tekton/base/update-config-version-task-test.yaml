@@ -46,7 +46,7 @@ spec:
       script: |
         rm -rf git-update-digest-workdir
         git clone $(params.GIT_REPOSITORY) git-update-digest-workdir
-        git checkout $(BRANCH)
+        git checkout $(params.BRANCH)
     - name: update-digest
       image: k8s.gcr.io/kustomize/kustomize:v3.8.7
       workingDir: $(workspaces.workspace.path)
@@ -80,7 +80,7 @@ spec:
         git commit -m "[$(context.taskRun.name)] Image digest updated"
         # git commit -m "[${PIPELINERUN_NAME}] Image digest updated"
         git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#https://(.*)#https://${GITUSERNAME}:${GITTOKEN}@\1#g")
-        git push auth-origin cluster-local
+        git push auth-origin $(params.BRANCH)
         RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
         EXIT_CODE="$?"
         if [ "$EXIT_CODE" != 0 ]
