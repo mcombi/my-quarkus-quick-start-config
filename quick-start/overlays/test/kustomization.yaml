@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: quick-start-test
+namespace: jaeger-demo
 resources:
 - quick-start.yaml
 - service.yaml
