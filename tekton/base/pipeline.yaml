@@ -100,6 +100,8 @@ spec:
           value: $(tasks.git-clone.results.commit)
         - name: KUSTOMIZATION_PATH
           value: quick-start/overlays/test
+        - name: BRANCH
+          value: cluster-local
       runAfter:
          - s2i-java-11-custom
       taskRef:

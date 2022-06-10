@@ -28,6 +28,9 @@ spec:
       type: string
     - name: KUSTOMIZATION_PATH
       type: string
+    - name: BRANCH
+      type: string
+      default: main
   workspaces:
     - description: The workspace consisting of maven project.
       name: workspace
@@ -43,6 +46,7 @@ spec:
       script: |
         rm -rf git-update-digest-workdir
         git clone $(params.GIT_REPOSITORY) git-update-digest-workdir
+        git checkout $(BRANCH)
     - name: update-digest
       image: k8s.gcr.io/kustomize/kustomize:v3.8.7
       workingDir: $(workspaces.workspace.path)
