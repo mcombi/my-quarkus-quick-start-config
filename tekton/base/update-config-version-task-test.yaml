@@ -76,7 +76,7 @@ spec:
         git commit -m "[$(context.taskRun.name)] Image digest updated"
         # git commit -m "[${PIPELINERUN_NAME}] Image digest updated"
         git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#https://(.*)#https://${GITUSERNAME}:${GITTOKEN}@\1#g")
-        git push auth-origin main
+        git push auth-origin cluster-local
         RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
         EXIT_CODE="$?"
         if [ "$EXIT_CODE" != 0 ]
