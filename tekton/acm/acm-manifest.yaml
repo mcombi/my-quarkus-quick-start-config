@@ -3,8 +3,8 @@ kind: Application
 metadata:
   annotations:
     apps.open-cluster-management.io/deployables: ''
-  name: quick-start
-  namespace: quick-start
+  name: demo-tekton-build-env
+  namespace: demo-tekton-build-env
 spec:
   componentKinds:
     - group: apps.open-cluster-management.io
@@ -15,28 +15,28 @@ spec:
       - key: app
         operator: In
         values:
-          - quick-start
+          - demo-tekton-build-env
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
   annotations:
-    apps.open-cluster-management.io/deployables: 'quick-start/quick-start-subscription-1-quick-start-overlays-test-quick-start-deployment,quick-start/quick-start-subscription-1-quick-start-overlays-test-quick-start-route-test-route,quick-start/quick-start-subscription-1-quick-start-overlays-test-quick-start-service-service'
+    apps.open-cluster-management.io/deployables: 'demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-my-gp2-immediate-storageclass,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-pipeline-promote-pipeline,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-git-update-deployment-test-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-git-promote-deployment-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-github-secret-secret,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-source-pvc-persistentvolumeclaim,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-github-service-account-serviceaccount,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-pipeline-test-pipeline,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-eventlistener,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-triggerbinding,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-el-quick-start-route,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-triggertemplate,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quay-credentials-secret,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-basic-user-pass-secret,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-s2i-java-11-custom-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-git-update-deployment-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-trigger-trigger'
     apps.open-cluster-management.io/git-branch: main
-    apps.open-cluster-management.io/git-path: quick-start/overlays/test
+    apps.open-cluster-management.io/git-path: tekton/overlays/classic
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
-    app: quick-start
-    app.kubernetes.io/part-of: quick-start
-    apps.open-cluster-management.io/reconcile-rate: medium
-  name: quick-start-subscription-1
-  namespace: quick-start
+    app: demo-tekton-build-env
+    app.kubernetes.io/part-of: demo-tekton-build-env
+    apps.open-cluster-management.io/reconcile-rate: high
+  name: demo-tekton-build-env-subscription-1
+  namespace: demo-tekton-build-env
 spec:
   channel: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns/ggithubcom-mcombi-my-quarkus-quick-start-conf
   placement:
     placementRef:
       kind: PlacementRule
-      name: quick-start-placement-1
+      name: demo-tekton-build-env-placement-1
   secondaryChannel: ''
 ---
 apiVersion: apps.open-cluster-management.io/v1
@@ -44,10 +44,10 @@ kind: PlacementRule
 metadata:
   annotations: {}
   labels:
-    app: quick-start
-  name: quick-start-placement-1
-  namespace: quick-start
+    app: demo-tekton-build-env
+  name: demo-tekton-build-env-placement-1
+  namespace: demo-tekton-build-env
 spec:
   clusterSelector:
     matchLabels:
-      clusterID: e638001d-2cda-4dc4-8e7f-1e7d453afee8
+      local-cluster: 'true'
