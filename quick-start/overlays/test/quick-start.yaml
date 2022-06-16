@@ -5,6 +5,7 @@ metadata:
   labels:
     app.openshift.io/runtime: quarkus
     app.kubernetes.io/runtime: quarkus
+    app-with-metrics: quick-start
 spec:
   replicas: 1
   selector:
