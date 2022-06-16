@@ -5,6 +5,7 @@ resources:
 - quick-start.yaml
 - service.yaml
 - route.yaml
+- servicemonitor.yaml
 commonLabels:
   app: quick-start
 images:
