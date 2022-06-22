@@ -1,0 +1,8 @@
+***REMOVED***
+kind: ConfigMap
+***REMOVED***
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+***REMOVED***
+  config.yaml: |
+    enableUserWorkload: true 
