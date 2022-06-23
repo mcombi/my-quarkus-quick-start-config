@@ -7,7 +7,7 @@ kind: Deployment
     app: quick-start
     app-with-metrics: quick-start
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: quick-start
