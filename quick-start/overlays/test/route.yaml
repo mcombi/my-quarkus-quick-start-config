@@ -11,5 +11,5 @@ spec:
     name: quick-start-service
     weight: 100
   port:
-    targetPort: server
+    targetPort: server-tcp
   wildcardPolicy: None
