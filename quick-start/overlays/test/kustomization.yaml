@@ -11,4 +11,4 @@ commonLabels:
 images:
 - name: quay.io/mcombi/quarkus-getting-started
   newName: quay.io/mcombi/quarkus-getting-started
-  newTag: db6e7c6288a62805cecec8aa0f5c78d60a22ec04
+  newTag: 72db5152c1821494cd31c03e056d8e482c226085
