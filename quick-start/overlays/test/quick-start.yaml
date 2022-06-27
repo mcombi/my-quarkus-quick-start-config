@@ -6,6 +6,7 @@ metadata:
     app.openshift.io/runtime: quarkus
     app: quick-start
     app-with-metrics: quick-start
+    version: v1
 spec:
   replicas: 3
   selector:
