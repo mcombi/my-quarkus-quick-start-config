@@ -72,7 +72,7 @@ spec:
         - name: TLSVERIFY
           value: 'false'
         - name: MAVEN_CLEAR_REPO
-          value: 'false'
+          value: 'true'
         - name: IMAGE_NAME
           value: $(params.IMAGE_NAME)
         - name: IMAGE_TAG
