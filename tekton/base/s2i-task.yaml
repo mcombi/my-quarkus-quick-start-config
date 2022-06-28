@@ -29,7 +29,7 @@ spec:
       description: Additional Maven arguments
       name: MAVEN_ARGS_APPEND
       type: string
-    - default: 'false'
+    - default: 'true'
       description: Remove the Maven repository after the artifact is built
       name: MAVEN_CLEAR_REPO
       type: string
