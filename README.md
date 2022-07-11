@@ -8,7 +8,7 @@ Config:
 repo: https://github.com/mcombi/my-quarkus-quick-start-config.git
 
 
-Tekton pipelines must be created in namespace "demo-tekton-build-env" and has two versions:
+Tekton pipelines must be created in namespace "demo-tekton-build-env" (NEED TO IMPROVE) and has two versions:
 classic -> the secret with github token is not encrypted
 sealed-secrets -> the secret is encrypted and also requires the following steps
 
