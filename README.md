@@ -23,3 +23,6 @@ kubeseal --fetch-cert > public-cert.pem
 
 Seal the secret (replace username and token in github-secret-ss):
 kubeseal --format yaml --cert ../../public-cert.pem < github-secret-ss.yaml > github-secret-sealed.yaml
+
+
+![gnome-shell-screenshot-ceqbcf](https://user-images.githubusercontent.com/100132715/178200548-2094642b-dbd2-42f6-aba4-212d2692d3d9.png)
