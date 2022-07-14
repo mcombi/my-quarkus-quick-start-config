@@ -1,0 +1,14 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: github-oauth-config
+  namespace: openshift-workspaces
+  labels:
+    app.kubernetes.io/part-of: che.eclipse.org
+    app.kubernetes.io/component: oauth-scm-configuration
+  annotations:
+    che.eclipse.org/oauth-scm-server: github
+type: Opaque
+data:
+  id: ZTIxNGFjMzgwMTZhMDBjZmM2NmI=
+  secret: YTVlNDg4YTA4MTk4N2E2MjhkMTRlNTZlOWMzMGJkODExYzcwMDExNg==
