@@ -26,7 +26,7 @@ Seal the secret (replace username and token in github-secret-ss):
 kubeseal --format yaml --cert ../../public-cert.pem < github-secret-ss.yaml > github-secret-sealed.yaml
 
 
-The application - my-quarkus-quick-start can be deployed with Argo cd referencing the directory 
+The application - my-quarkus-quick-start can be deployed with Argo cd referencing the directory quick-start/overlays which is not standard kustomize directory structure and should be fixed.
 
 
 ![gnome-shell-screenshot-ceqbcf](https://user-images.githubusercontent.com/100132715/178200548-2094642b-dbd2-42f6-aba4-212d2692d3d9.png)
