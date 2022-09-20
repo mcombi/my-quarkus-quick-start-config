@@ -7,6 +7,8 @@ As Architecture diagram shows, with argo or RHACM you can install the tekton pip
 
 In the argocd folder there is a CRD that can be usefull to deploy an ArgoCd Application (needs update)
 
+![gnome-shell-screenshot-ceqbcf](https://user-images.githubusercontent.com/100132715/178200548-2094642b-dbd2-42f6-aba4-212d2692d3d9.png)
+
 **Builds**:
 The container images are stored in : 
 
@@ -40,4 +42,4 @@ kubeseal --format yaml --cert ../../public-cert.pem < github-secret-ss.yaml > gi
 
 
 
-![gnome-shell-screenshot-ceqbcf](https://user-images.githubusercontent.com/100132715/178200548-2094642b-dbd2-42f6-aba4-212d2692d3d9.png)
+
