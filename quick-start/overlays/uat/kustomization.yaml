@@ -3,3 +3,5 @@ bases:
 
 patches:
 - replicas.yaml
+- route.yaml
+- servicemonitor.yaml
