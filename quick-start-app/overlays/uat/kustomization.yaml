@@ -1,6 +1,6 @@
 bases:
 - ../../base
 namespace: quick-start-uat
-namePrefix: quick-start-uat
+#namePrefix: quick-start-uat
 patchesStrategicMerge:
   - patch-deployment.yaml
