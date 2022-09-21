@@ -2,6 +2,6 @@ bases:
 - ../../base
 
 patches:
-- replicas.yaml
+- patch-deployment.yaml
 
 #- servicemonitor.yaml
