@@ -12,3 +12,7 @@ spec:
   selector:
     matchLabels:
       app: quick-start
+  template:
+    ***REMOVED***
+    ***REMOVED***
+        app: quick-start
