@@ -3,4 +3,4 @@ kind: Deployment
 metadata:
   name: quick-start
 spec:
-  replicas: 1
+  replicas: 2
