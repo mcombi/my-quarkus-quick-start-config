@@ -1,0 +1,8 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app-with-metrics: quick-start
+    k8s-app: quick-start
+  name: quick-start
+  namespace: quick-start-uat
