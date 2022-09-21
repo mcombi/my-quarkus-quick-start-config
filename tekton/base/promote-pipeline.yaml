@@ -28,7 +28,7 @@ spec:
         - name: NEW_DIGEST
           value: $(params.IMAGE_TAG)
         - name: KUSTOMIZATION_PATH
-          value: quick-start/overlays/uat
+          value: quick-start-app/overlays/uat
       taskRef:
          kind: Task
          name: git-update-deployment-test
