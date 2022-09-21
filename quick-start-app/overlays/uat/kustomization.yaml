@@ -1,7 +1,6 @@
 bases:
 - ../../base
-
-patches:
-- replicas.yaml
-
-#- servicemonitor.yaml
+namespace: quick-start-uat
+namePrefix: quick-start-uat
+patchesStrategicMerge:
+  - patch-deployment.yaml
