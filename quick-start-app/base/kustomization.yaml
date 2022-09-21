@@ -8,7 +8,3 @@ resources:
 - servicemonitor.yaml
 commonLabels:
   app: quick-start
-images:
-- name: quay.io/mcombi/quarkus-getting-started
-  newName: quay.io/mcombi/quarkus-getting-started
-  newTag: 4a161ec361f0322da841a67fe20be980a528d722
