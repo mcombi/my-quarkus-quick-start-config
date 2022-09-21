@@ -12,3 +12,7 @@ spec:
   selector:
     matchLabels:
       app: quick-start
+  template:
+    metadata:
+      labels:
+        app: quick-start
