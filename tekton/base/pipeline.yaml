@@ -99,7 +99,7 @@ spec:
         - name: NEW_DIGEST
           value: $(tasks.git-clone.results.commit)
         - name: KUSTOMIZATION_PATH
-          value: quick-start/overlays/test
+          value: quick-start-app/overlays/test
       runAfter:
          - s2i-java-11-custom
       taskRef:
