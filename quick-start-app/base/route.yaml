@@ -1,7 +1,6 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: quick-start-route-test
   labels:
     app: quick-start
     app.kubernetes.io/instance: quick-start
