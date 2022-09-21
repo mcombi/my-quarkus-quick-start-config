@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: a2a-demo-test
+  name: tekton-pipelines
   namespace: default
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,11 +9,11 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/mcombi/my-quarkus-quick-start-config.git'
-    path: tekton/base
+    path: tekton/overlays/classic
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
-    namespace: a2a-demo-test
+    namespace: tekton-pipelines
   syncPolicy:
     automated:
       prune: false
