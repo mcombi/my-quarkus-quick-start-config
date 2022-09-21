@@ -1,0 +1,7 @@
+bases:
+- ../../base
+
+patches:
+- replicas.yaml
+- route.yaml
+- servicemonitor.yaml

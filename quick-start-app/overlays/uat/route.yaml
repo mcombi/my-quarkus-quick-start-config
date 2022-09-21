@@ -1,0 +1,4 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+***REMOVED***
+  name: quick-start-route-uat
