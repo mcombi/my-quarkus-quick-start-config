@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 ***REMOVED***
   name: quick-start
+
 spec:
-  replicas: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quick-start
   
