@@ -6,3 +6,12 @@ metadata:
     k8s-app: quick-start
   name: quick-start
   namespace: quick-start-test
+spec:
+  endpoints:
+    - interval: 30s
+      path: /metrics
+      port: http
+      scheme: http
+  selector:
+    matchLabels:
+      app: quick-start

@@ -5,7 +5,6 @@ metadata:
     app-with-metrics: quick-start
     k8s-app: quick-start
   name: quick-start
-  namespace: quick-start-test
 spec:
   endpoints:
     - interval: 30s
