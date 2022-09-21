@@ -6,3 +6,13 @@ kind: ServiceMonitor
     k8s-app: quick-start
   name: quick-start
   namespace: quick-start-uat
+
+spec:
+  endpoints:
+    - interval: 30s
+      path: /metrics
+      port: http
+      scheme: http
+  selector:
+    matchLabels:
+      app: quick-start
