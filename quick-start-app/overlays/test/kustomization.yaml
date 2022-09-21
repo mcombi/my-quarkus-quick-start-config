@@ -1,7 +1,8 @@
 bases:
 - ../../base
-
-patches:
-- replicas.yaml
+namespace: quick-start-test
+#amePrefix: quick-start-test
+patchesStrategicMerge:
+  - patch-deployment.yaml
 
 #- servicemonitor.yaml
