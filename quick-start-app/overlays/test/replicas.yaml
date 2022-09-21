@@ -16,3 +16,12 @@ spec:
     metadata:
       labels:
         app: quick-start
+        version: v1
+    spec:
+      containers:
+        - name: quarkus-getting-started
+          image: quay.io/mcombi/quarkus-getting-started:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: tpc-port
