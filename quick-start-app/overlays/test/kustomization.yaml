@@ -1,8 +1,12 @@
-bases:
-- ../../base
 namespace: quick-start-test
 #amePrefix: quick-start-test
 patchesStrategicMerge:
-  - patch-deployment.yaml
-
-#- servicemonitor.yaml
+- patch-deployment.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+images:
+- name: quay.io/mcombi/quarkus-getting-started
+  newName: quay.io/mcombi/quarkus-getting-started
+  newTag: ae9a62a74b7aa6e4c6c0123b5c2dc5a529e0cd0a
