@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: demo-tekton-build-env
 bases:
   - ../../base/
-patchesStrategicMerge:
+resources:
   - github-secret.yaml
 
 
