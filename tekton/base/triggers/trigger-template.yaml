@@ -20,7 +20,7 @@ spec:
       ***REMOVED***
         generateName: build-deploy-$(tt.params.git-repo-name)-
       spec:
-        serviceAccountName: pipeline
+        #serviceAccountName: pipeline
         serviceAccountNames:
           - taskName: git-update-deployment-test
             serviceAccountName: github-service-account
