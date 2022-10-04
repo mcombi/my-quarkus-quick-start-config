@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+***REMOVED***
+  name: quick-start-test
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: quick-start-test-placement
+        requeueAfterSeconds: 180
+  template:
+    ***REMOVED***
+      name: quick-start-test-{{name}}
+    ***REMOVED***
+        velero.io/exclude-from-backup: "true"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/mcombi/my-quarkus-quick-start-config
+        targetRevision: main
+        path: quick-start-app/overlays/test
+      destination:
+        namespace: quick-start-test
+        server: "{{server}}"
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
+          - Replace=false
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+***REMOVED***
+  name: quick-start-test-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - all-openshift-clusters
