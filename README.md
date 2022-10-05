@@ -20,9 +20,18 @@ Quay: mcombi/quarkus-getting-started
 
 repo: https://github.com/mcombi/my-quarkus-quick-start-config.git
 
-**Application**
+**Application - Kustomize**
 
-The application - my-quarkus-quick-start can be deployed with Argo cd referencing the directory quick-start/overlays which is not standard kustomize directory structure and should be fixed.
+The application - my-quarkus-quick-start can be deployed with ArgoCD/ACM as Source referencing the directory quick-start/overlays. In this folder there are the two environments test and uat.
+
+**Application - Helm**
+
+The application my-quarkus-quick-start can be also be deployed with ArgoCD/ACM as Source using helm. The helm chart is in folder quick-start-app-helm/quick-start-app
+
+**Application - ApplicationSet**
+
+The application my-quarkus-quick-start can be also be deployed as an ArgoCD ApplicationSet from ACM. The required CRD's are in folder quick-start-app-application-set
+
 
 **Tekton**
 
