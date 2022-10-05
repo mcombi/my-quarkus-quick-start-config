@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+***REMOVED***
+***REMOVED***
+    app-with-metrics: quick-start
+    k8s-app: quick-start
+  name: quick-start
+spec:
+  endpoints:
+    - interval: 30s
+      path: /metrics
+      port: http
+      scheme: http
+  selector:
+    matchLabels:
+      app: quick-start
