@@ -3,6 +3,7 @@ kind: Route
 ***REMOVED***
   name: quick-start-route
 ***REMOVED***
+   {{- include "quick-start-app.labels" . | nindent 4 }}
     app: quick-start
     app.kubernetes.io/instance: quick-start
 spec:
