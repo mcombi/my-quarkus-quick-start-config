@@ -1,0 +1,15 @@
+***REMOVED***
+kind: Pod
+***REMOVED***
+  name: "{{ include "quick-start-app.fullname" . }}-test-connection"
+***REMOVED***
+    {{- include "quick-start-app.labels" . | nindent 4 }}
+***REMOVED***
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "quick-start-app.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
