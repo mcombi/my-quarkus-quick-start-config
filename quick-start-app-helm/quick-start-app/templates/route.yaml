@@ -8,7 +8,7 @@ kind: Route
 spec:
   to:
     kind: Service
-    name: quick-start-service
+    name: quick-start
     weight: 100
   port:
     targetPort: http
