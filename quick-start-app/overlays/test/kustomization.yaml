@@ -7,3 +7,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - ../../base
+images:
+- name: quay.io/mcombi/quarkus-getting-started
+  newName: quay.io/mcombi/quarkus-getting-started
+  newTag: 3922ae738a2b04acafc1533a863c90c327ac095a
