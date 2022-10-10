@@ -2,7 +2,6 @@
 kind: ConfigMap
 ***REMOVED***
   name: customer
-
 ***REMOVED***
   qs.customer.name: Matteo
 

@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: quick-start-test
 resources:
 - quick-start.yaml
+- cm.yaml
 - service.yaml
 - route.yaml
 - servicemonitor.yaml
