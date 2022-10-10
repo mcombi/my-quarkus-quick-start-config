@@ -1,0 +1,9 @@
+***REMOVED***
+kind: ConfigMap
+***REMOVED***
+  name: example
+  namespace: demo
+***REMOVED***
+  qs.customer.name: Matteo
+
+

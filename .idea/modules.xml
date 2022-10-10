@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../argocd-demo/argocd-demo.iml" filepath="$PROJECT_DIR$/../../argocd-demo/argocd-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../my-quarkus-quick-start/my-quarkus-quick-start/getting-started.iml" filepath="$PROJECT_DIR$/../../my-quarkus-quick-start/my-quarkus-quick-start/getting-started.iml" />
+      <module fileurl="file://$USER_HOME$/argocd-demo/argocd-demo.iml" filepath="$USER_HOME$/argocd-demo/argocd-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../my-quarkus-quick-start/getting-started.iml" filepath="$PROJECT_DIR$/../my-quarkus-quick-start/getting-started.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/my-quarkus-quick-start-config.iml" filepath="$PROJECT_DIR$/.idea/my-quarkus-quick-start-config.iml" />
     </modules>
   </component>

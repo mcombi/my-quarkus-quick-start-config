@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="Quarkus" url="file://$PROJECT_DIR$/../../my-quarkus-quick-start/my-quarkus-quick-start" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/../my-quarkus-quick-start" />
+    <file type="Quarkus" url="file://$USER_HOME$/my-quarkus-quick-start/my-quarkus-quick-start" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/../../my-quarkus-quick-start/my-quarkus-quick-start/pom.xml" />
+        <option value="$USER_HOME$/my-quarkus-quick-start/my-quarkus-quick-start/pom.xml" />
+        <option value="$PROJECT_DIR$/../my-quarkus-quick-start/pom.xml" />
       </list>
     </option>
   </component>
