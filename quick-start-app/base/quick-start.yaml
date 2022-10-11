@@ -21,6 +21,12 @@ spec:
       containers:
         - name: quarkus-getting-started
           image: quay.io/mcombi/quarkus-getting-started:latest
+          env:
+            - name: QS_CUSTOMER_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: customer
+                  key: qs.customer.name
           ports:
             - containerPort: 8080
               protocol: TCP
