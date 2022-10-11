@@ -22,7 +22,7 @@ spec:
         - name: quarkus-getting-started
           image: quay.io/mcombi/quarkus-getting-started:latest
           env:
-            - name: qname
+            - name: qs.customer.name
               valueFrom:
                 configMapKeyRef:
                   name: customer
