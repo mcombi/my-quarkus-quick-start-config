@@ -29,7 +29,7 @@ spec:
         - key: vendor
           operator: "In"
           values:
-          - OpenShif
+          - OpenShift
 ---
 
 
