@@ -1,10 +1,13 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 ***REMOVED***
-***REMOVED***
-    apps.open-cluster-management.io/deployables: ''
   name: demo-tekton-build-env
 ***REMOVED***
+***REMOVED***
+    apps.open-cluster-management.io/deployables: ''
+    apps.open-cluster-management.io/subscriptions: demo-tekton-build-env/demo-tekton-build-env-subscription-1,demo-tekton-build-env/demo-tekton-build-env-subscription-1-local
+    open-cluster-management.io/user-group: c3lzdGVtOnNlcnZpY2VhY2NvdW50cyxzeXN0ZW06c2VydmljZWFjY291bnRzOm9wZW4tY2x1c3Rlci1tYW5hZ2VtZW50LHN5c3RlbTphdXRoZW50aWNhdGVk
+    open-cluster-management.io/user-identity: c3lzdGVtOnNlcnZpY2VhY2NvdW50Om9wZW4tY2x1c3Rlci1tYW5hZ2VtZW50Om11bHRpY2x1c3Rlci1hcHBsaWNhdGlvbnM=
 spec:
   componentKinds:
     - group: apps.open-cluster-management.io
@@ -20,34 +23,39 @@ spec:
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 ***REMOVED***
+  name: demo-tekton-build-env-subscription-1
 ***REMOVED***
-    apps.open-cluster-management.io/deployables: 'demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-my-gp2-immediate-storageclass,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-pipeline-promote-pipeline,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-git-update-deployment-test-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-git-promote-deployment-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-github-secret-secret,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-source-pvc-persistentvolumeclaim,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-github-service-account-serviceaccount,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-pipeline-test-pipeline,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-eventlistener,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-triggerbinding,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-el-quick-start-route,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-triggertemplate,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quay-credentials-secret,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-basic-user-pass-secret,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-s2i-java-11-custom-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-git-update-deployment-task,demo-tekton-build-env/demo-tekton-build-env-subscription-1-tekton-base-quick-start-trigger-trigger'
+***REMOVED***
     apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-current-commit: 6632d0747af24df42a87047d2e3f90dd2cb9f3d0
     apps.open-cluster-management.io/git-path: tekton/overlays/classic
     apps.open-cluster-management.io/reconcile-option: merge
+    open-cluster-management.io/user-group: c3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
+    open-cluster-management.io/user-identity: b3BlbnRsYy1tZ3I=
 ***REMOVED***
     app: demo-tekton-build-env
     app.kubernetes.io/part-of: demo-tekton-build-env
     apps.open-cluster-management.io/reconcile-rate: high
-  name: demo-tekton-build-env-subscription-1
-***REMOVED***
 spec:
-  channel: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns/ggithubcom-mcombi-my-quarkus-quick-start-conf
+  channel: ggithubcom-mcombi-my-quarkus-quick-start-config-ns/ggithubcom-mcombi-my-quarkus-quick-start-config
   placement:
     placementRef:
-      kind: PlacementRule
       name: demo-tekton-build-env-placement-1
-  secondaryChannel: ''
+      kind: PlacementRule
+posthooks: {}
+prehooks: {}
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 ***REMOVED***
-***REMOVED*** {}
-***REMOVED***
-    app: demo-tekton-build-env
   name: demo-tekton-build-env-placement-1
 ***REMOVED***
+***REMOVED***
+    open-cluster-management.io/user-group: c3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
+    open-cluster-management.io/user-identity: b3BlbnRsYy1tZ3I=
+***REMOVED***
+    app: demo-tekton-build-env
 spec:
-  clusterSelector:
-    matchLabels:
-      local-cluster: 'true'
+  clusterConditions:
+    - status: 'True'
+      type: ManagedClusterConditionAvailable
