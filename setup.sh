@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#oc login -u opentlc-mgr -p  $1
+#oc login -u opentlc-mgr -p  $1 improve this
 oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops
 argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
 echo "$argopass"
