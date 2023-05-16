@@ -1,10 +1,10 @@
-***REMOVED***
+apiVersion: v1
 kind: Pod
-***REMOVED***
+metadata:
   name: "{{ include "quick-start-app.fullname" . }}-test-connection"
-***REMOVED***
+  labels:
     {{- include "quick-start-app.labels" . | nindent 4 }}
-***REMOVED***
+  annotations:
     "helm.sh/hook": test
 spec:
   containers:

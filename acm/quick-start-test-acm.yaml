@@ -1,11 +1,11 @@
-***REMOVED***
+apiVersion: v1
 kind: Namespace
-***REMOVED***
+metadata:
   name: quick-start-test
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
-***REMOVED***
+metadata:
   name: quick-start-test
   namespace: quick-start-test
 spec:
@@ -20,15 +20,15 @@ spec:
         values:
           - quick-start-test
 ---
-***REMOVED***
+apiVersion: v1
 kind: Namespace
-***REMOVED***
+metadata:
   name: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
-***REMOVED***
-***REMOVED***
+metadata:
+  annotations:
     apps.open-cluster-management.io/reconcile-rate: high
   name: ggithubcom-mcombi-my-quarkus-quick-start-conf
   namespace: ggithubcom-mcombi-my-quarkus-quick-start-conf-ns
@@ -38,12 +38,12 @@ spec:
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
-***REMOVED***
-***REMOVED***
+metadata:
+  annotations:
     apps.open-cluster-management.io/git-branch: main
     apps.open-cluster-management.io/git-path: quick-start/overlays/test
     apps.open-cluster-management.io/reconcile-option: merge
-***REMOVED***
+  labels:
     app: quick-start-test
   name: quick-start-test-subscription-1
   namespace: quick-start-test
@@ -56,8 +56,8 @@ spec:
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
-***REMOVED***
-***REMOVED***
+metadata:
+  labels:
     app: quick-start-test
   name: quick-start-test-placement-1
   namespace: quick-start-test

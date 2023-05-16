@@ -1,8 +1,8 @@
-***REMOVED***
+apiVersion: v1
 kind: ConfigMap
-***REMOVED***
+metadata:
   name: cluster-monitoring-config
   namespace: openshift-monitoring
-***REMOVED***
+data:
   config.yaml: |
     enableUserWorkload: true 

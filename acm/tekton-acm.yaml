@@ -1,9 +1,9 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
-***REMOVED***
+metadata:
   name: demo-tekton-build-env
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  annotations:
     apps.open-cluster-management.io/deployables: ''
     apps.open-cluster-management.io/subscriptions: demo-tekton-build-env/demo-tekton-build-env-subscription-1,demo-tekton-build-env/demo-tekton-build-env-subscription-1-local
     open-cluster-management.io/user-group: c3lzdGVtOnNlcnZpY2VhY2NvdW50cyxzeXN0ZW06c2VydmljZWFjY291bnRzOm9wZW4tY2x1c3Rlci1tYW5hZ2VtZW50LHN5c3RlbTphdXRoZW50aWNhdGVk
@@ -22,17 +22,17 @@ spec:
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
-***REMOVED***
+metadata:
   name: demo-tekton-build-env-subscription-1
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  annotations:
     apps.open-cluster-management.io/git-branch: main
     apps.open-cluster-management.io/git-current-commit: 6632d0747af24df42a87047d2e3f90dd2cb9f3d0
     apps.open-cluster-management.io/git-path: tekton/overlays/classic
     apps.open-cluster-management.io/reconcile-option: merge
     open-cluster-management.io/user-group: c3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
     open-cluster-management.io/user-identity: b3BlbnRsYy1tZ3I=
-***REMOVED***
+  labels:
     app: demo-tekton-build-env
     app.kubernetes.io/part-of: demo-tekton-build-env
     apps.open-cluster-management.io/reconcile-rate: high
@@ -47,13 +47,13 @@ prehooks: {}
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
-***REMOVED***
+metadata:
   name: demo-tekton-build-env-placement-1
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  annotations:
     open-cluster-management.io/user-group: c3lzdGVtOmF1dGhlbnRpY2F0ZWQ6b2F1dGgsc3lzdGVtOmF1dGhlbnRpY2F0ZWQ=
     open-cluster-management.io/user-identity: b3BlbnRsYy1tZ3I=
-***REMOVED***
+  labels:
     app: demo-tekton-build-env
 spec:
   clusterConditions:

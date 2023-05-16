@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-***REMOVED***
+metadata:
   name: quick-start
 spec:
   replicas: 5

@@ -1,13 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
-***REMOVED***
-***REMOVED***
+metadata:
+  annotations:
     tekton.dev/pipelines.minVersion: 0.12.1
     tekton.dev/tags: git
     argocd.argoproj.io/sync-wave: "3"
   name: git-update-deployment-test
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  labels:
     app.kubernetes.io/version: '0.1'
     operator.tekton.dev/provider-type: community
 spec:
@@ -58,12 +58,12 @@ spec:
         - name: GITUSERNAME
           valueFrom:
             secretKeyRef:
-            ***REMOVED***
+              name: basic-user-pass
               key: username
         - name: GITTOKEN
           valueFrom:
             secretKeyRef:
-            ***REMOVED***
+              name: basic-user-pass
               key: password
       image: docker.io/alpine/git:v2.26.2
       workingDir: $(workspaces.workspace.path)

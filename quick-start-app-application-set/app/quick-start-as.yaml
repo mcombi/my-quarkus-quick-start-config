@@ -1,6 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
-***REMOVED***
+metadata:
   name: quick-start-test
   namespace: openshift-gitops
 spec:
@@ -12,9 +12,9 @@ spec:
             cluster.open-cluster-management.io/placement: quick-start-test-placement
         requeueAfterSeconds: 180
   template:
-    ***REMOVED***
+    metadata:
       name: quick-start-test-{{name}}
-    ***REMOVED***
+      labels:
         velero.io/exclude-from-backup: "true"
     spec:
       project: default
@@ -36,7 +36,7 @@ spec:
 ---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
-***REMOVED***
+metadata:
   name: quick-start-test-placement
   namespace: openshift-gitops
 spec:

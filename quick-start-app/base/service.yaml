@@ -1,10 +1,10 @@
-***REMOVED***
+apiVersion: v1
 kind: Service
-***REMOVED***
+metadata:
   name: quick-start-service
-***REMOVED***
+  labels:
     app: quick-start
-***REMOVED***
+  annotations:
     cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:

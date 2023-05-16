@@ -1,6 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-***REMOVED***
+metadata:
   name: tekton-pipelines
   namespace: default
   finalizers:

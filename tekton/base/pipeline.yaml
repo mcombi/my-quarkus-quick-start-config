@@ -1,9 +1,9 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
-***REMOVED***
+metadata:
   name: quick-start-pipeline-test
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
 

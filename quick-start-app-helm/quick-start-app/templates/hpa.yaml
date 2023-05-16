@@ -1,9 +1,9 @@
 {{- if .Values.autoscaling.enabled }}
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
-***REMOVED***
+metadata:
   name: {{ include "quick-start-app.fullname" . }}
-***REMOVED***
+  labels:
     {{- include "quick-start-app.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:

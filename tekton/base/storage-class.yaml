@@ -1,8 +1,8 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
-***REMOVED***
+metadata:
   name: my-gp2-immediate
-***REMOVED***
+  annotations:
     argocd.argoproj.io/sync-wave: "0"
 provisioner: kubernetes.io/aws-ebs
 parameters:

@@ -1,8 +1,8 @@
-***REMOVED***
+apiVersion: v1
 kind: Service
-***REMOVED***
+metadata:
   name: {{ include "quick-start-app.fullname" . }}
-***REMOVED***
+  labels:
     {{- include "quick-start-app.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}

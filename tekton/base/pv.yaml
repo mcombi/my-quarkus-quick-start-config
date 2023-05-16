@@ -1,9 +1,9 @@
-***REMOVED***
+apiVersion: v1
 kind: PersistentVolume
-***REMOVED***
+metadata:
   name: tekton-build-volume-test
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   capacity:

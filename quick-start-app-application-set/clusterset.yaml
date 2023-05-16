@@ -1,6 +1,6 @@
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: ManagedClusterSet
-***REMOVED***
+metadata:
   name: all-openshift-clusters
   spec: {}
 
@@ -8,7 +8,7 @@ kind: ManagedClusterSet
 
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: ManagedClusterSetBinding
-***REMOVED***
+metadata:
   name: all-openshift-clusters
   namespace: openshift-gitops
 spec:
@@ -18,7 +18,7 @@ spec:
 
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: Placement
-***REMOVED***
+metadata:
   name: all-openshift-clusters
   namespace: openshift-gitops
 spec:
@@ -35,7 +35,7 @@ spec:
 
 apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
-***REMOVED***
+metadata:
   name: argo-acm-clusters
   namespace: openshift-gitops
 spec:

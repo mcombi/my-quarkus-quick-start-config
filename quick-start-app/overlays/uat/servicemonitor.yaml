@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
-***REMOVED***
-***REMOVED***
+metadata:
+  labels:
     app-with-metrics: quick-start
     k8s-app: quick-start
   name: quick-start

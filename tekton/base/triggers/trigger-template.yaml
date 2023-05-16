@@ -1,8 +1,8 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
-***REMOVED***
+metadata:
   name: quick-start
-***REMOVED***
+  annotations:
     argocd.argoproj.io/sync-wave: "4"
 spec:
   params:
@@ -17,7 +17,7 @@ spec:
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
-      ***REMOVED***
+      metadata:
         generateName: build-deploy-$(tt.params.git-repo-name)-
       spec:
         #serviceAccountName: pipeline

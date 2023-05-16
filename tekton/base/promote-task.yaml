@@ -1,13 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
-***REMOVED***
-***REMOVED***
+metadata:
+  annotations:
     tekton.dev/pipelines.minVersion: 0.12.1
     tekton.dev/tags: git
     argocd.argoproj.io/sync-wave: "3"
   name: git-promote-deployment
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  labels:
     app.kubernetes.io/version: '0.1'
     operator.tekton.dev/provider-type: community
 spec:

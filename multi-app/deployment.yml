@@ -1,7 +1,7 @@
 ---
 apiVersion: apps/v1
 kind: Deployment
-***REMOVED***
+metadata:
   name: simple-deployment
 spec:
   replicas: 1
@@ -9,8 +9,8 @@ spec:
     matchLabels:
       app: trivial-go-web-app
   template:
-    ***REMOVED***
-    ***REMOVED***
+    metadata:
+      labels:
         app: trivial-go-web-app
     spec:
       containers:

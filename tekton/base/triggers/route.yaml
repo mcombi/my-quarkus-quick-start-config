@@ -1,11 +1,11 @@
 apiVersion: route.openshift.io/v1
 kind: Route
-***REMOVED***
+metadata:
   name: el-quick-start
-***REMOVED***
-***REMOVED***
+  namespace: demo-tekton-build-env
+  annotations:
     argocd.argoproj.io/sync-wave: "4"
-***REMOVED***
+  labels:
     app: quick-start
     app.kubernetes.io/instance: quick-start
 spec:

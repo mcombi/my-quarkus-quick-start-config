@@ -1,8 +1,8 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
-***REMOVED***
+metadata:
   name: demo-tekton-build-env
-***REMOVED***
+  namespace: demo-tekton-build-env
 spec:
   componentKinds:
   - group: apps.open-cluster-management.io
@@ -15,15 +15,15 @@ spec:
         values: 
           - demo-tekton-build-env
 ---
-***REMOVED***
+apiVersion: v1
 kind: Namespace
-***REMOVED***
+metadata:
   name: ggithubcom-mcombi-my-quarkus-quick-start-config-ns
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
-***REMOVED***
-***REMOVED***
+metadata:
+  annotations:
     apps.open-cluster-management.io/reconcile-rate: high
   name: ggithubcom-mcombi-my-quarkus-quick-start-config
   namespace: ggithubcom-mcombi-my-quarkus-quick-start-config-ns
@@ -33,15 +33,15 @@ spec:
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
-***REMOVED***
-***REMOVED***
+metadata:
+  annotations:
     apps.open-cluster-management.io/git-branch: main
     apps.open-cluster-management.io/git-path: tekton/overlays/classic
     apps.open-cluster-management.io/reconcile-option: merge
-***REMOVED***
+  labels:
     app: demo-tekton-build-env
   name: demo-tekton-build-env-subscription-1
-***REMOVED***
+  namespace: demo-tekton-build-env
 spec:
   channel: ggithubcom-mcombi-my-quarkus-quick-start-config-ns/ggithubcom-mcombi-my-quarkus-quick-start-config
   placement:
@@ -51,11 +51,11 @@ spec:
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
-***REMOVED***
-***REMOVED***
+metadata:
+  labels:
     app: demo-tekton-build-env
   name: demo-tekton-build-env-placement-1
-***REMOVED***
+  namespace: demo-tekton-build-env
 spec:
   clusterSelector:
     matchLabels:

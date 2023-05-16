@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
-***REMOVED***
+metadata:
   name: {{ include "quick-start-app.fullname" . }}
-***REMOVED***
+  labels:
     {{- include "quick-start-app.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
@@ -12,12 +12,12 @@ spec:
     matchLabels:
       {{- include "quick-start-app.selectorLabels" . | nindent 6 }}
   template:
-    ***REMOVED***
+    metadata:
       {{- with .Values.podAnnotations }}
-    ***REMOVED***
+      annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-    ***REMOVED***
+      labels:
         {{- include "quick-start-app.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}

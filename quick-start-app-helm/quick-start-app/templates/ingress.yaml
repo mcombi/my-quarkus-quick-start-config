@@ -14,12 +14,12 @@ apiVersion: networking.k8s.io/v1beta1
 apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
-***REMOVED***
+metadata:
   name: {{ $fullName }}
-***REMOVED***
+  labels:
     {{- include "quick-start-app.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
-***REMOVED***
+  annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:

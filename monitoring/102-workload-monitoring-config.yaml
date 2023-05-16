@@ -1,8 +1,8 @@
-***REMOVED***
+apiVersion: v1
 kind: ConfigMap
-***REMOVED***
+metadata:
   name: user-workload-monitoring-config
   namespace: openshift-user-workload-monitoring
-***REMOVED***
+data:
   config.yaml: |
     enableUserWorkload: true
