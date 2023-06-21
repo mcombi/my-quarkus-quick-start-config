@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: quick-start-pipeline-promote
-  namespace: demo-tekton-build-env
+ # namespace: demo-tekton-build-env
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
