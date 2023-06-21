@@ -1,13 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
-***REMOVED***
-***REMOVED***
+metadata:
+  annotations:
     tekton.dev/displayName: s2i java 11
     tekton.dev/pipelines.minVersion: 0.11.3
     tekton.dev/tags: 's2i, java, workspace'
     argocd.argoproj.io/sync-wave: "1"
   name: s2i-java-11-custom
-***REMOVED***
+  namespace: demo-tekton-build-env
 
 spec:
 
