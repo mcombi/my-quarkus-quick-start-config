@@ -7,7 +7,6 @@ metadata:
     tekton.dev/tags: 's2i, java, workspace'
     argocd.argoproj.io/sync-wave: "1"
   name: s2i-java-11-custom
-  namespace: demo-tekton-build-env
 
 spec:
 
