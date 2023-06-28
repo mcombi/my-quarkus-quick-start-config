@@ -55,6 +55,12 @@ spec:
 
     - name: git-commit
       image: docker.io/alpine/git:v2.26.2
+      env:
+        - name: GIT_PWD
+          valueFrom:
+            secretKeyRef:
+              name: github-secret
+              key: "secretToken"
       workingDir: $(workspaces.workspace.path)
       script: |
         cd git-update-digest-workdir
@@ -64,7 +70,7 @@ spec:
         git add $(params.KUSTOMIZATION_PATH)/kustomization.yaml
         git commit -m "[$(context.taskRun.name)] Image digest updated"
         # git commit -m "[${PIPELINERUN_NAME}] Image digest updated"
-        git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#https://(.*)#https://$(params.GIT_USERNAME):$(params.GIT_PASSWORD)@\1#g")
+        git remote add auth-origin $(echo $(params.GIT_REPOSITORY) | sed -E "s#https://(.*)#https://$GIT_PWD:$(en)@\1#g")
         git push auth-origin main
         RESULT_SHA="$(git rev-parse HEAD | tr -d '\n')"
         EXIT_CODE="$?"
