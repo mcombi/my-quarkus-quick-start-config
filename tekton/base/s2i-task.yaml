@@ -13,6 +13,7 @@ spec:
     env:
       - name: "HOME"
         value: "/tekton/home"
+
   description: >-
     s2i-java-11 task clones a Git repository and builds and pushes a container
     image using S2I and a Java 11 builder image.
@@ -97,7 +98,7 @@ spec:
           name: gen-source
         - mountPath: /env-params
           name: envparams
-      workingDir: $(workspaces.source.path)
+      workingDir: /workspace
     - command:
         - buildah
         - bud
