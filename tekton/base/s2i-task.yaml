@@ -9,7 +9,10 @@ metadata:
   name: s2i-java-11-custom
 
 spec:
-
+  stepTemplate:
+    env:
+      - name: "HOME"
+        value: "/tekton/home"
   description: >-
     s2i-java-11 task clones a Git repository and builds and pushes a container
     image using S2I and a Java 11 builder image.
