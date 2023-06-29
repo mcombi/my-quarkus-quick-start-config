@@ -85,8 +85,8 @@ spec:
         - 'image-registry.openshift-image-registry.svc:5000/openshift/java:11'
         - '--image-scripts-url'
         - 'image:///usr/local/s2i'
-#        - '--as-dockerfile'
-#        - /gen-source/Dockerfile.gen
+        - '--as-dockerfile'
+        - /gen-source/Dockerfile.gen
         - '--environment-file'
         - /env-params/env-file
       image: >-
@@ -108,8 +108,8 @@ spec:
         - '--storage-driver=vfs'
         - '--tls-verify=$(params.TLSVERIFY)'
         - '--layers'
- #       - '-f'
- #       - /gen-source/Dockerfile.gen
+        - '-f'
+        - /gen-source/Dockerfile.gen
         - '-t'
         - '$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
         - '-t'
