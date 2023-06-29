@@ -108,8 +108,8 @@ spec:
         - '--storage-driver=vfs'
         - '--tls-verify=$(params.TLSVERIFY)'
         - '--layers'
-        - '-f'
-        - /gen-source/Dockerfile.gen
+ #       - '-f'
+ #       - /gen-source/Dockerfile.gen
         - '-t'
         - '$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
         - '-t'
