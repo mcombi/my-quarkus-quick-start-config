@@ -86,7 +86,7 @@ spec:
         - '--image-scripts-url'
         - 'image:///usr/local/s2i'
         - '--as-dockerfile'
-        - /gen-source/Dockerfile.gen
+        - /source/src/main/docker/Dockerfile.jvm
         - '--environment-file'
         - /env-params/env-file
       image: >-
@@ -109,7 +109,7 @@ spec:
         - '--tls-verify=$(params.TLSVERIFY)'
         - '--layers'
         - '-f'
-        - /gen-source/Dockerfile.gen
+        - /source/src/main/docker/Dockerfile.jvm
         - '-t'
         - '$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
         - '-t'
