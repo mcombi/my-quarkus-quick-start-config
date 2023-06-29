@@ -10,4 +10,4 @@ resources:
 images:
 - name: quay.io/mcombi/quarkus-getting-started
   newName: quay.io/mcombi/quarkus-getting-started
-  newTag: 7c3a686e4bfa2da5ac44e7c2275e4aeb4b72678f
+  newTag: 7b17cb5eacdc1f06139aa1d91beb8e8444ad0604
