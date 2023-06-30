@@ -79,14 +79,14 @@ spec:
           name: envparams
       workingDir: /env-params
     - script: >
-        echo "MAVEN_CLEAR_REPO=$(params.MAVEN_CLEAR_REPO)" > /env-vars/env-file
+        echo "MAVEN_CLEAR_REPO=$(params.MAVEN_CLEAR_REPO)" > /env-paramsenv-file
         
         
         [[ '$(params.MAVEN_ARGS_APPEND)' != "" ]] &&
-          echo "MAVEN_ARGS_APPEND=$(params.MAVEN_ARGS_APPEND)" >> /env-vars/env-file
+          echo "MAVEN_ARGS_APPEND=$(params.MAVEN_ARGS_APPEND)" >> /env-params/env-file
         
         [[ '$(params.MAVEN_MIRROR_URL)' != "" ]] &&
-          echo "MAVEN_MIRROR_URL=$(params.MAVEN_MIRROR_URL)" >> /env-vars/env-file
+          echo "MAVEN_MIRROR_URL=$(params.MAVEN_MIRROR_URL)" >> /env-params/env-file
         
         echo "Processing Build Environment Variables"
         
