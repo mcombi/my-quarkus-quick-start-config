@@ -79,7 +79,7 @@ spec:
           name: envparams
       workingDir: /env-params
     - script: >
-        echo "MAVEN_CLEAR_REPO=$(params.MAVEN_CLEAR_REPO)" > /env-paramsenv-file
+        echo "MAVEN_CLEAR_REPO=$(params.MAVEN_CLEAR_REPO)" > /env-params/env-file
         
         
         [[ '$(params.MAVEN_ARGS_APPEND)' != "" ]] &&
