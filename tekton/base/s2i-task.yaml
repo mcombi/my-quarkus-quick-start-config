@@ -146,7 +146,7 @@ spec:
         - name: quay-auth-secret
           mountPath: /etc/secret-volume
           readOnly: true
-      workingDir: /workspace
+      workingDir: /gen-source
     - command:
         - buildah
         - push
