@@ -54,6 +54,7 @@ spec:
       name: IMAGE_NAME
   steps:
     - args:
+
         - |-
           echo "MAVEN_CLEAR_REPO=$(params.MAVEN_CLEAR_REPO)" > env-file
 
@@ -67,6 +68,9 @@ spec:
           echo "------------------------------"
           cat env-file
           echo "------------------------------"
+      env:
+        - name: HOME
+          value: /tekton/home
       command:
         - /bin/sh
         - '-c'
