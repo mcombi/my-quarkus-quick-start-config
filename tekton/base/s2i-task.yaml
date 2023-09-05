@@ -129,7 +129,7 @@ spec:
         - '--tls-verify=$(params.TLSVERIFY)'
         - '--layers'
         - '-f'
-        - /src/main/docker/Dockerfile.jvm
+        - /gen-source/Dockerfile.gen
         - '-t'
         - '$(params.IMAGE_NAME):$(params.IMAGE_TAG)'
         - '-t'
