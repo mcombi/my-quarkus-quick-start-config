@@ -1,10 +1,18 @@
 # my-quarkus-quick-start-config
 
+
+**Prerequisites**
+
+Install Openshift Gitops Operator if you to run this demo with ArgoCD
+Install Advanced Cluster Manager for Kubernetes Operator if you want to run this demo with ACM
+Install Openshift Pipelines Operator to Manage the pipelines.
+
 **Abstract**
 
 This repository contains the configurations for project *https://github.com/mcombi/my-quarkus-quick-start.git*
 
-As Architecture diagram shows, with argo or RHACM you can install the tekton pipeline that will be used to build and deploy the application. 
+
+As Architecture diagram shows, with ArgoCD or RHACM you can install the tekton pipeline that will be used to build and deploy the application. 
 
 In the argocd folder there is a CRD that can be usefull to deploy an ArgoCd Application (needs update)
 
@@ -43,15 +51,16 @@ sealed-secrets -> the secret is encrypted and also requires the following steps
 
 **Install sealed secrets**:
 
-oc apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18.0/controller.yaml
-Install kubeseal:
-sudo wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18.0/kubeseal-linux-amd64 -O kubeseal
+    oc apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.22.0/controller.yaml
+Install kubeseal in the project where argo will run: This means that you have to generate the project before and you cannot let argo create the project for you unless there is a way to do that (that i don't know at the moment)
 
-Get Cert from controller 
+sudo wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.22.0/kubeseal-linux-amd64 -O kubeseal
+
+Get Cert from controller (mind the directory where you run this command )
 kubeseal --fetch-cert > public-cert.pem
 
 Seal the secret (replace username and token in github-secret-ss):
-kubeseal --format yaml --cert ../../public-cert.pem < github-secret-ss.yaml > github-secret-sealed.yaml
+kubeseal --format yaml --cert ../../../public-cert.pem < github-secret-ss.yaml > github-secret-sealed.yaml
 
 
 
