@@ -102,7 +102,7 @@ spec:
         
         
         s2i build $(params.PATH_CONTEXT)
-        image-registry.openshift-image-registry.svc:5000/openshift/java:11
+        image-registry.openshift-image-registry.svc:5000/openshift/java:openjdk-17-ubi8
         \
         
         --image-scripts-url image:///usr/local/s2i \
@@ -121,7 +121,7 @@ spec:
           name: gen-source
         - mountPath: /env-params
           name: envparams
-      workingDir: /workspace
+      workingDir: /workspace/source
     - command:
         - buildah
         - bud
