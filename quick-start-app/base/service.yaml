@@ -4,8 +4,8 @@ metadata:
   name: quick-start-service
   labels:
     app: quick-start
-  annotations:
-    cloud.google.com/load-balancer-type: "Internal"
+#  annotations:
+#    cloud.google.com/load-balancer-type: "Internal"
 spec:
   ports:
     - protocol: TCP
