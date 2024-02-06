@@ -14,4 +14,4 @@ spec:
       name: http
   selector:
     app: quick-start
-  type: LoadBalancer
+  type: ClusterIP
